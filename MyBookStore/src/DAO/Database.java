@@ -16,7 +16,7 @@ public class Database {
 
             String DB_URL = "jdbc:mysql://localhost:3306/book-store-management-db";
             String USER = "root";
-            String PASS = "root";
+            String PASS = "280502";
 
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
         } catch (SQLException ex) {

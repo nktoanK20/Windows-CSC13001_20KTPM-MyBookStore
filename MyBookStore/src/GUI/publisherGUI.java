@@ -457,6 +457,8 @@ public class publisherGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 closeFrame();
+                UserControl userControl = new UserControl(username);
+                userControl.setVisible(true);
 
             }
 
