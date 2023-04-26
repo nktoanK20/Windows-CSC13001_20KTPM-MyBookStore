@@ -101,4 +101,8 @@ public class BookPOJO {
     public String toString() {
       return id+" - " + name +" - "+ price;
     }
+
+    public BookPOJO clone(){
+        return new BookPOJO(id, name, idPublisher, price, stock, totalPurchase, releaseDate, enabled);
+    }
 }
