@@ -518,4 +518,44 @@ public class PromotionDAO {
         }
         return result;
     }
+    
+    public static PromotionPOJO getPromotionByIdBook(String idBook) {
+        PromotionPOJO promotion = null;
+        Connection connection = Database.createConnection();
+        try {
+            String sql = "SELECT promotion.id, promotion.name, promotion.description, promotion.start_date, promotion.end_date, promotion.percent, promotion.apply_option, promotion.limit_orders, promotion.is_enabled FROM promotion, book, promotion_book WHERE promotion_book.id_book = ? AND promotion_book.id_promotion = promotion.id";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, idBook);
+
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()) {
+                String id = rs.getString("id");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                Date start_date = rs.getDate("start_date");
+                Date end_date = rs.getDate("end_date");
+                double percent = rs.getDouble("percent");
+                String apply_option = rs.getString("apply_option");
+                int limit_orders = rs.getInt("limit_orders");
+                boolean enabled = rs.getBoolean("is_enabled");
+                
+                promotion = new PromotionPOJO(id, name, description, start_date, end_date, percent, apply_option, limit_orders, enabled);
+            }
+            
+            rs.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PromotionPOJO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            if(connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return promotion;
+    }
 }

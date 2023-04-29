@@ -13,7 +13,9 @@ public class OrdersPOJO {
     String createAt;
     String createBy;
     String boughtBy;
-
+    String boughtById;
+    int sumCost;
+    
     public OrdersPOJO(String id, String createAt, String createBy, String boughtBy, int sumCost) {
         this.id = id;
         this.createAt = createAt;
@@ -22,6 +24,15 @@ public class OrdersPOJO {
         this.sumCost = sumCost;
     }
 
+    public OrdersPOJO(String id, String createAt, String createBy, String boughtBy, String boughtById, int sumCost) {
+        this.id = id;
+        this.createAt = createAt;
+        this.createBy = createBy;
+        this.boughtBy = boughtBy;
+        this.boughtById = boughtById;
+        this.sumCost = sumCost;
+    }
+    
     public String getId() {
         return id;
     }
@@ -61,6 +72,12 @@ public class OrdersPOJO {
     public void setSumCost(int sumCost) {
         this.sumCost = sumCost;
     }
-    int sumCost;
-    
+
+    public String getBoughtById() {
+        return boughtById;
+    }
+
+    public void setBoughtById(String boughtById) {
+        this.boughtById = boughtById;
+    }
 }

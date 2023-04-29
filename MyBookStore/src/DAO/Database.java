@@ -14,9 +14,13 @@ public class Database {
             Driver myDriver = new com.mysql.cj.jdbc.Driver();
             DriverManager.registerDriver(myDriver);
 
-            String DB_URL = "jdbc:mysql://localhost:3306/book-store-management-db";
+//            String DB_URL = "jdbc:mysql://localhost:3306/book-store-management-db";
+//            String USER = "root";
+//            String PASS = "280502";
+
+            String DB_URL = "jdbc:mysql://localhost/book-store-management-db";
             String USER = "root";
-            String PASS = "280502";
+            String PASS = "huuloc123";
 
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
         } catch (SQLException ex) {

@@ -1,6 +1,7 @@
 package DAO;
 
 import POJO.AccountPOJO;
+import POJO.OrdersPOJO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -135,6 +136,41 @@ public class AccountDAO {
             }
         }
         return result;
+    }
+    
+    public AccountPOJO getAccountByUsername(String username) {
+        AccountPOJO account = null;
+        Connection connection = Database.createConnection();
+        
+        try {
+            String sql = "SELECT * FROM account WHERE username=?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                String id = rs.getString("id");
+                String password = rs.getString("password");
+                boolean isActive = rs.getBoolean("is_active");
+      
+                account = new AccountPOJO(id, username, password, isActive);
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountPOJO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        
+        return account;
     }
 
 }

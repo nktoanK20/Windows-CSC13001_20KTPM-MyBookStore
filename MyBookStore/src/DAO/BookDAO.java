@@ -525,4 +525,28 @@ public class BookDAO {
         return result;
     }
 
+    public static boolean updateSoldBook(int newStock, int newTotalPurchase, String idBook) {
+        try {
+            Connection connection = Database.createConnection();
+
+            //Prepared statement
+            String query = "UPDATE book SET stock=?, total_purchase=? WHERE id=?";
+            PreparedStatement pstmt = null;
+            pstmt = connection.prepareStatement(query);
+            //Set parameters
+            pstmt.setInt(1, newStock);
+            pstmt.setInt(2, newTotalPurchase);
+            pstmt.setString(3, idBook);
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+        return true;
+    }
 }

@@ -50,4 +50,8 @@ public class PromotionBUS {
     public static Boolean disable(String promotionId){
         return PromotionDAO.disable(promotionId);
     }
+    
+    public static PromotionPOJO getPromotionByIdBook(String idBook) {
+        return PromotionDAO.getPromotionByIdBook(idBook);
+    }
 }

@@ -13,8 +13,13 @@ public class CustomerBUS {
         return da.getMaxIDCustomer();
     }
     
-     public boolean addNewCustomer(CustomerPOJO cus) {
-         CustomerDAO da = new CustomerDAO();
-         return da.addNewCustomer(cus);
-     }
+    public boolean addNewCustomer(CustomerPOJO cus) {
+        CustomerDAO da = new CustomerDAO();
+        return da.addNewCustomer(cus);
+    }
+    
+    public CustomerPOJO getCustomerById(String idCustomer) {
+        CustomerDAO da = new CustomerDAO();
+        return da.getCustomerById(idCustomer);
+    }
 }

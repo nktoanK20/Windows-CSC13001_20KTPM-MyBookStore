@@ -60,4 +60,8 @@ public class BookBUS {
     public static boolean deleteBookCategories(String bookId, ArrayList<String> listCategoryId){
         return BookDAO.deleteBookCategories(bookId, listCategoryId);
     }
+    
+    public static boolean updateSoldBook(int newStock, int newTotalPurchase, String idBook) {
+        return BookDAO.updateSoldBook(newStock, newTotalPurchase, idBook);
+    }
 }

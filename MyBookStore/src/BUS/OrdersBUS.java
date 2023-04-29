@@ -43,4 +43,14 @@ public class OrdersBUS {
         OrdersDAO da = new OrdersDAO();
         return da.getOrdersByMonth(month, year);
     }
+    
+    public OrdersPOJO getOrdersById(String idOrder) {
+        OrdersDAO da = new OrdersDAO();
+        return da.getOrdersById(idOrder);
+    }
+    
+    public boolean deleteOrder(String idOrder) {
+        OrdersDAO da = new OrdersDAO();
+        return da.deleteOrder(idOrder);
+    }
 }
