@@ -37,16 +37,41 @@ public class LoginForm extends JFrame implements ActionListener {
         setSize(900, 600);
         // setLocationRelativeTo(null);
         userInterface();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         try {
             File myObj = new File(".config.txt");
             if (!myObj.createNewFile()) {
 
                 try {
                     Scanner myReader = new Scanner(myObj);
-                    if(myReader.hasNextLine()){
-                        user.setText(myReader.nextLine());
-                        pass.setText(myReader.nextLine());
+                    String user_file = null;
+                    String password_file = null;
+                    if(myReader.hasNextLine()) {
+                        user_file = myReader.nextLine();
                     }
+                    if(myReader.hasNextLine()) {
+
+                        password_file = myReader.nextLine();
+                    }
+
+                    String buffer = "REMEMBER_FALSE";
+                    if(myReader.hasNextLine()){
+                         buffer = myReader.nextLine();
+                    }
+                        if(buffer.equals("REMEMBER_TRUE")){
+
+                            rememberMeCheckBox.setSelected(true);
+
+                        } else{
+                            rememberMeCheckBox.setSelected(false);
+                        }
+                        if(rememberMeCheckBox.isSelected()){
+                            user.setText(user_file);
+                            pass.setText(password_file);
+
+                        }
+
 
                     myReader.close();
                 } catch (FileNotFoundException e) {
@@ -143,16 +168,21 @@ public class LoginForm extends JFrame implements ActionListener {
         String userValue = user.getText().trim(); // get user entered username from the textField1
         String passValue = String.valueOf(pass.getPassword()).trim(); // get user entered password from the textField2
         Boolean rememberMe = rememberMeCheckBox.isSelected();
-        if(rememberMe.equals(true)){
+
             try {
                 FileWriter myWriter = new FileWriter(".config.txt");
                 myWriter.write(userValue+"\n");
-                myWriter.write(passValue);
+                myWriter.write(passValue+"\n");
+                if(rememberMe){
+                    myWriter.write("REMEMBER_TRUE");
+                } else{
+                    myWriter.write("REMEMBER_FALSE");
+                }
                 myWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+
         int role = validateAccount(userValue, passValue);
         if (role == -3) {
             message.setForeground(Color.red);
