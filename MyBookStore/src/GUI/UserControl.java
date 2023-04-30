@@ -18,9 +18,12 @@ import java.io.IOException;
 
 import BUS.AccountBUS;
 import BUS.UserBUS;
+import DAO.UserDAO;
 import POJO.AccountPOJO;
 import POJO.UserPOJO;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -265,16 +268,16 @@ public class UserControl extends JFrame {
 		});
 		publisherManageBtn.setBounds(507, 316, 132, 31);
 		contentPane.add(publisherManageBtn);
-		BufferedImage image;
-		try {
-			image = ImageIO.read(new File("src/images/hieu-sach-nha-nam-214377.jpg"));
-			JLabel imageLable = new JLabel(new ImageIcon(image));
+//		BufferedImage image;
+//		try {
+			JLabel imageLable = new JLabel(new ImageIcon(getClass().getResource("../images/hieu-sach-nha-nam-214377.jpg")));
+
 			imageLable.setBounds(152, 129, 345, 253);
 			contentPane.add(imageLable);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	private void hideUserControl() {
@@ -552,35 +555,74 @@ public class UserControl extends JFrame {
 			add(addButton, gbc);
 		}
 
+		public String encryptPassword(String password){
+			String encryptedPassword = null;
+			try
+			{
+				/* MessageDigest instance for MD5. */
+				MessageDigest m = MessageDigest.getInstance("MD5");
+
+				/* Add plain-text password bytes to digest using MD5 update() method. */
+				m.update(password.getBytes());
+
+				/* Convert the hash value into bytes */
+				byte[] bytes = m.digest();
+
+				/* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */
+				StringBuilder s = new StringBuilder();
+				for(int i=0; i< bytes.length ;i++)
+				{
+					s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+				}
+
+				/* Complete hashed password in hexadecimal format */
+				encryptedPassword = s.toString();
+			}
+			catch (NoSuchAlgorithmException e)
+			{
+				e.printStackTrace();
+			}
+			return encryptedPassword;
+		}
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == addButton) {
 				Boolean result = doChangePassword();
-				if (!result)
-					JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
+//				if (!result)
+//					JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
 			}
 		}
 
 		public Boolean doChangePassword() {
-			String oldPasswordFieldVal = String.valueOf(oldPasswordFieldEn.getPassword());
 			String newPasswordFieldVal = String.valueOf(newPasswordFieldEn.getPassword());
 			String repeatPasswordFieldVal = String.valueOf(repeatPasswordFieldEn.getPassword());
-			if (oldPasswordFieldVal.isEmpty() || newPasswordFieldVal.isEmpty()
+			String oldPasswordFieldVal = String.valueOf(oldPasswordFieldEn.getPassword());
+			if (newPasswordFieldVal.isEmpty()
 					|| repeatPasswordFieldVal.isEmpty()) {
+				JOptionPane.showMessageDialog(this, "All fields are requirement!");
 				return false;
 			}
-			if (!oldPasswordFieldVal.equals(acc.getPassword())) {
-				return false;
-			}
+
 			if (!newPasswordFieldVal.equals(repeatPasswordFieldVal)) {
+				JOptionPane.showMessageDialog(this, "Repeat password went wrong!");
+
 				return false;
 			}
+			String currentPassword = acc.getPassword();
+			String inputOldPassword = encryptPassword(oldPasswordFieldVal);
+			if (!inputOldPassword.equals(currentPassword)) {
+				JOptionPane.showMessageDialog(this, "Old password went wrong!");
+				return false;
+			}
+			String encryptedPassword = encryptPassword(newPasswordFieldVal);
+
 			try {
 
 				AccountPOJO accountUpdate = new AccountPOJO(
 						acc.getId(),
 						acc.getUsername(),
-						newPasswordFieldVal,
+						encryptedPassword,
 						acc.getIsActive());
 				AccountBUS accountBUS = new AccountBUS();
 				Boolean result = accountBUS.update(accountUpdate);
@@ -593,7 +635,7 @@ public class UserControl extends JFrame {
 							"information", "Error", JOptionPane.WARNING_MESSAGE);
 				}
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
+				JOptionPane.showMessageDialog(this, "Can't update password, please check again!");
 				System.out.println(Arrays.toString(ex.getStackTrace()));
 			}
 

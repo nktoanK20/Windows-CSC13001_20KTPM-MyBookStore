@@ -12,29 +12,50 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import java.util.Scanner;
+import javax.swing.*;
 
 public class LoginForm extends JFrame implements ActionListener {
     JButton loginButton;
     JPasswordField pass;
     JTextField user;
     JLabel message;
+    JCheckBox rememberMeCheckBox;
     AdminControllerGUI adminControllerGUI;
     UserControl userControl;
 
     public LoginForm() {
         // setUndecorated(true);
+
         setSize(900, 600);
         // setLocationRelativeTo(null);
         userInterface();
+        try {
+            File myObj = new File(".config.txt");
+            if (!myObj.createNewFile()) {
+
+                try {
+                    Scanner myReader = new Scanner(myObj);
+                    if(myReader.hasNextLine()){
+                        user.setText(myReader.nextLine());
+                        pass.setText(myReader.nextLine());
+                    }
+
+                    myReader.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void userInterface() {
@@ -80,6 +101,10 @@ public class LoginForm extends JFrame implements ActionListener {
         pass.setPreferredSize(new Dimension(200, 30));
         pan.add(pass);
 
+        rememberMeCheckBox = new JCheckBox("Remember Me", true);
+        rememberMeCheckBox.setBounds(100, 150,50, 50);
+        pan.add(rememberMeCheckBox);
+
         right_comp.add(pan);
 
         right_pan.add(right_comp);
@@ -115,8 +140,19 @@ public class LoginForm extends JFrame implements ActionListener {
     }
 
     private void doLogin() {
-        String userValue = user.getText(); // get user entered username from the textField1
-        String passValue = String.valueOf(pass.getPassword()); // get user entered password from the textField2
+        String userValue = user.getText().trim(); // get user entered username from the textField1
+        String passValue = String.valueOf(pass.getPassword()).trim(); // get user entered password from the textField2
+        Boolean rememberMe = rememberMeCheckBox.isSelected();
+        if(rememberMe.equals(true)){
+            try {
+                FileWriter myWriter = new FileWriter(".config.txt");
+                myWriter.write(userValue+"\n");
+                myWriter.write(passValue);
+                myWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         int role = validateAccount(userValue, passValue);
         if (role == -3) {
             message.setForeground(Color.red);
@@ -161,7 +197,8 @@ public class LoginForm extends JFrame implements ActionListener {
         userList = UserBUS.getAll();
         for (AccountPOJO a : accountList) {
 
-            if (a != null && a.getUsername().equals(username) && a.getPassword().equals(password)) {
+            String passwordEncrypted = encryptPassword(password);
+            if (a != null && a.getUsername().equals(username) && a.getPassword().equals(passwordEncrypted)) {
                 if (!a.getIsActive()) {
                     return -3; // is not active
                 }
@@ -178,6 +215,36 @@ public class LoginForm extends JFrame implements ActionListener {
 
         }
         return -1; // failed
+    }
+
+    public String encryptPassword(String password){
+        String encryptedPassword = null;
+        try
+        {
+            /* MessageDigest instance for MD5. */
+            MessageDigest m = MessageDigest.getInstance("MD5");
+
+            /* Add plain-text password bytes to digest using MD5 update() method. */
+            m.update(password.getBytes());
+
+            /* Convert the hash value into bytes */
+            byte[] bytes = m.digest();
+
+            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */
+            StringBuilder s = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            /* Complete hashed password in hexadecimal format */
+            encryptedPassword = s.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return encryptedPassword;
     }
 
     public static void main(String[] args) {

@@ -22,6 +22,8 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -466,6 +468,7 @@ public class AdminManagement extends JPanel implements ActionListener {
                 addressField.setText("");
                 roleField.setText("");
             } else if (e.getSource() == addButton) {
+
                 try {
                     int roleSet = 0;
                     if (roleField.getText().contentEquals("Admin")) {
@@ -513,7 +516,7 @@ public class AdminManagement extends JPanel implements ActionListener {
         JPasswordField repeatPasswordFieldEn;
         JTextField repeatPasswordField;
 
-        JButton addButton;
+        JButton changePasswordButton;
 
         GridBagConstraints gbc;
         AccountPOJO acc;
@@ -554,8 +557,8 @@ public class AdminManagement extends JPanel implements ActionListener {
             repeatPasswordLabel = new JLabel("Repeat your new password:");
             repeatPasswordField = new JTextField();
 
-            addButton = new JButton("Update");
-            addButton.addActionListener(this);
+            changePasswordButton = new JButton("Update");
+            changePasswordButton.addActionListener(this);
 
             gbc = new GridBagConstraints();
             gbc.insets = new Insets(5, 20, 5, 20);
@@ -600,36 +603,39 @@ public class AdminManagement extends JPanel implements ActionListener {
 
             gbc.gridx = 1;
             gbc.gridy = i;
-            add(addButton, gbc);
+            add(changePasswordButton, gbc);
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == addButton) {
+            if (e.getSource() == changePasswordButton) {
                 Boolean result = doChangePassword();
                 if (!result)
-                    JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
+                    JOptionPane.showMessageDialog(this, "Update failed, please check again!");
             }
         }
 
         public Boolean doChangePassword() {
-
             String newPasswordFieldVal = newPasswordField.getText();
             String repeatPasswordFieldVal = repeatPasswordField.getText();
             if (newPasswordFieldVal.isEmpty()
                     || repeatPasswordFieldVal.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are requirement!");
                 return false;
             }
 
             if (!newPasswordFieldVal.equals(repeatPasswordFieldVal)) {
+                JOptionPane.showMessageDialog(this, "Repeat password went wrong!");
+
                 return false;
             }
+            String encryptedPassword = encryptPassword(newPasswordFieldVal);
             try {
 
                 AccountPOJO accountUpdate = new AccountPOJO(
                         acc.getId(),
                         acc.getUsername(),
-                        newPasswordFieldVal,
+                        encryptedPassword,
                         acc.getIsActive());
                 AccountBUS accountBUS = new AccountBUS();
                 Boolean result = accountBUS.update(accountUpdate);
@@ -642,7 +648,7 @@ public class AdminManagement extends JPanel implements ActionListener {
                             "information", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
+                JOptionPane.showMessageDialog(this, "Can't update password, please check again!");
                 System.out.println(Arrays.toString(ex.getStackTrace()));
             }
 
@@ -818,6 +824,7 @@ public class AdminManagement extends JPanel implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
             if (e.getSource() == clearButton) {
                 idField.setText("");
                 usernameField.setText("");
@@ -858,8 +865,10 @@ public class AdminManagement extends JPanel implements ActionListener {
                     if (roleField.getText().trim().contentEquals("Admin")) {
                         roleSet = 1;
                     }
+
+                    String passwordEncrypted = encryptPassword(passwordField.getText());
                     AccountPOJO accountNew = new AccountPOJO(idField.getText(), usernameField.getText(),
-                            passwordField.getText(), true);
+                            passwordEncrypted, true);
                     AccountBUS accountBUS = new AccountBUS();
                     Boolean result = accountBUS.insert(accountNew);
                     UserPOJO newUser = new UserPOJO(
@@ -871,7 +880,7 @@ public class AdminManagement extends JPanel implements ActionListener {
                     UserBUS userBUS = new UserBUS();
                     result = userBUS.insert(newUser);
                     if (result) {
-                        JOptionPane.showMessageDialog(this, "Update success!", "Success",
+                        JOptionPane.showMessageDialog(this, "Create success!", "Success",
                                 JOptionPane.PLAIN_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(this, "Something went wrong..., please review the " +
@@ -886,7 +895,35 @@ public class AdminManagement extends JPanel implements ActionListener {
         }
 
     }
+    private String encryptPassword(String password){
+        String encryptedPassword = null;
+        try
+        {
+            /* MessageDigest instance for MD5. */
+            MessageDigest m = MessageDigest.getInstance("MD5");
 
+            /* Add plain-text password bytes to digest using MD5 update() method. */
+            m.update(password.getBytes());
+
+            /* Convert the hash value into bytes */
+            byte[] bytes = m.digest();
+
+            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */
+            StringBuilder s = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            /* Complete hashed password in hexadecimal format */
+            encryptedPassword = s.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return encryptedPassword;
+    }
     private Boolean isExistAccountId(String accountId) {
         ArrayList<AccountPOJO> accList = AccountBUS.getAll();
         for (AccountPOJO acc : accList) {
