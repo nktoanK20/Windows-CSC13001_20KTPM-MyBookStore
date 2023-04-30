@@ -12,29 +12,48 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import java.util.Scanner;
+import javax.swing.*;
 
 public class LoginForm extends JFrame implements ActionListener {
     JButton loginButton;
     JPasswordField pass;
     JTextField user;
     JLabel message;
+    JCheckBox rememberMeCheckBox;
     AdminControllerGUI adminControllerGUI;
     UserControl userControl;
 
     public LoginForm() {
         // setUndecorated(true);
+
         setSize(900, 600);
         // setLocationRelativeTo(null);
         userInterface();
+        try {
+            File myObj = new File(".config.txt");
+            if (!myObj.createNewFile()) {
+
+                try {
+                    Scanner myReader = new Scanner(myObj);
+                    if(myReader.hasNextLine()){
+                        user.setText(myReader.nextLine());
+                        pass.setText(myReader.nextLine());
+                    }
+
+                    myReader.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void userInterface() {
@@ -80,6 +99,10 @@ public class LoginForm extends JFrame implements ActionListener {
         pass.setPreferredSize(new Dimension(200, 30));
         pan.add(pass);
 
+        rememberMeCheckBox = new JCheckBox("Remember Me", true);
+        rememberMeCheckBox.setBounds(100, 150,50, 50);
+        pan.add(rememberMeCheckBox);
+
         right_comp.add(pan);
 
         right_pan.add(right_comp);
@@ -117,6 +140,17 @@ public class LoginForm extends JFrame implements ActionListener {
     private void doLogin() {
         String userValue = user.getText(); // get user entered username from the textField1
         String passValue = String.valueOf(pass.getPassword()); // get user entered password from the textField2
+        Boolean rememberMe = rememberMeCheckBox.isSelected();
+        if(rememberMe.equals(true)){
+            try {
+                FileWriter myWriter = new FileWriter(".config.txt");
+                myWriter.write(userValue+"\n");
+                myWriter.write(passValue);
+                myWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         int role = validateAccount(userValue, passValue);
         if (role == -3) {
             message.setForeground(Color.red);
