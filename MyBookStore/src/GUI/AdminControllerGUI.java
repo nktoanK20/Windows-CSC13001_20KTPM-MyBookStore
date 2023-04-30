@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import BUS.PublisherBUS;
@@ -183,15 +185,17 @@ public class AdminControllerGUI extends JFrame {
         contentPane.add(viewStatisticsBtn);
 
         BufferedImage image;
-        try {
-            image = ImageIO.read(new File("src/images/hieu-sach-nha-nam-214377.jpg"));
-            JLabel imageLable = new JLabel(new ImageIcon(image));
+//        try {
+//            image = ImageIO.read(new File("../images/cover.jpeg"));
+//            JLabel imageLable = new JLabel(new ImageIcon(image));
+            JLabel imageLable = new JLabel(new ImageIcon(getClass().getResource("../images/hieu-sach-nha-nam-214377.jpg")));
+
             imageLable.setBounds(152, 129, 345, 253);
             contentPane.add(imageLable);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
     }
 
     public String getUsername() {
@@ -486,31 +490,40 @@ public class AdminControllerGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == addButton) {
                 Boolean result = doChangePassword();
-                if (!result)
-                    JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
+//                if (!result)
+//                    JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
             }
         }
 
         public Boolean doChangePassword() {
-            String oldPasswordFieldVal = String.valueOf(oldPasswordFieldEn.getPassword());
             String newPasswordFieldVal = String.valueOf(newPasswordFieldEn.getPassword());
             String repeatPasswordFieldVal = String.valueOf(repeatPasswordFieldEn.getPassword());
-            if (oldPasswordFieldVal.isEmpty() || newPasswordFieldVal.isEmpty()
+            String oldPasswordFieldVal = String.valueOf(oldPasswordFieldEn.getPassword());
+            if (newPasswordFieldVal.isEmpty()
                     || repeatPasswordFieldVal.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are requirement!");
                 return false;
             }
-            if (!oldPasswordFieldVal.equals(acc.getPassword())) {
-                return false;
-            }
+
             if (!newPasswordFieldVal.equals(repeatPasswordFieldVal)) {
+                JOptionPane.showMessageDialog(this, "Repeat password went wrong!");
+
                 return false;
             }
+            String currentPassword = acc.getPassword();
+            String inputOldPassword = encryptPassword(oldPasswordFieldVal);
+            if (!inputOldPassword.equals(currentPassword)) {
+                JOptionPane.showMessageDialog(this, "Old password went wrong!");
+                return false;
+            }
+            String encryptedPassword = encryptPassword(newPasswordFieldVal);
+
             try {
 
                 AccountPOJO accountUpdate = new AccountPOJO(
                         acc.getId(),
                         acc.getUsername(),
-                        newPasswordFieldVal,
+                        encryptedPassword,
                         acc.getIsActive());
                 AccountBUS accountBUS = new AccountBUS();
                 Boolean result = accountBUS.update(accountUpdate);
@@ -523,13 +536,43 @@ public class AdminControllerGUI extends JFrame {
                             "information", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Invalid Information, please check again!");
+                JOptionPane.showMessageDialog(this, "Can't update password, please check again!");
                 System.out.println(Arrays.toString(ex.getStackTrace()));
             }
 
             return true;
         }
 
+    }
+
+    private String encryptPassword(String password){
+        String encryptedPassword = null;
+        try
+        {
+            /* MessageDigest instance for MD5. */
+            MessageDigest m = MessageDigest.getInstance("MD5");
+
+            /* Add plain-text password bytes to digest using MD5 update() method. */
+            m.update(password.getBytes());
+
+            /* Convert the hash value into bytes */
+            byte[] bytes = m.digest();
+
+            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */
+            StringBuilder s = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            /* Complete hashed password in hexadecimal format */
+            encryptedPassword = s.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return encryptedPassword;
     }
 
 }
