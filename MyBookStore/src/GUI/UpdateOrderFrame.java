@@ -332,6 +332,7 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
         labelCustomerName.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         labelCustomerName.setText("Customer's Name: ");
 
+        textFieldIDEmployee.setEditable(false);
         textFieldIDEmployee.setPreferredSize(new java.awt.Dimension(96, 35));
         textFieldIDEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,6 +345,7 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
             }
         });
 
+        textFieldNameCustomer.setEditable(false);
         textFieldNameCustomer.setMinimumSize(new java.awt.Dimension(96, 35));
         textFieldNameCustomer.setPreferredSize(new java.awt.Dimension(96, 40));
         textFieldNameCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -357,12 +359,17 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
             }
         });
 
+        checkboxOfficialCustomer.setEnabled(false);
         checkboxOfficialCustomer.setText("Official Customer");
-        checkboxOfficialCustomer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxOfficialCustomerActionPerformed(evt);
-            }
-        });
+        // checkboxOfficialCustomer.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         checkboxOfficialCustomerActionPerformed(evt);
+        //     }
+        // });
+
+        textFieldTotalPrice.setEditable(false);
+        textFieldDiscount.setEditable(false);
+        textFieldPayment.setEditable(false);
 
         tableViewBooksList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -701,16 +708,16 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
         }
     }                                                  
 
-    private void checkboxOfficialCustomerActionPerformed(java.awt.event.ActionEvent evt) {                                                         
-        // TODO add your handling code here:
-        // Mỗi lần check thì tải lại dữ liệu của bảng
-        fillTableViewBooksList();
-        if(checkboxOfficialCustomer.isSelected()) {
-            textFieldNameCustomer.setText(customer.getName());
-        } else {
-            textFieldNameCustomer.setText("Anonymous");
-        }
-    }                                                        
+    // private void checkboxOfficialCustomerActionPerformed(java.awt.event.ActionEvent evt) {                                                         
+    //     // TODO add your handling code here:
+    //     // Mỗi lần check thì tải lại dữ liệu của bảng
+    //     fillTableViewBooksList();
+    //     if(checkboxOfficialCustomer.isSelected()) {
+    //         textFieldNameCustomer.setText(customer.getName());
+    //     } else {
+    //         textFieldNameCustomer.setText("Anonymous");
+    //     }
+    // }                                                        
 
     private void tableViewAddedBooksMouseClicked(java.awt.event.MouseEvent evt) {                                                 
         // TODO add your handling code here:

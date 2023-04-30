@@ -28,8 +28,12 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
     private String idOrder;
     private String username;
     private OrdersPOJO order;
-    private DefaultTableModel tableBoughtBooksModel = new DefaultTableModel();
-    private DefaultTableModel tableBuyBooksMoreModel = new DefaultTableModel();
+    private DefaultTableModel tableBoughtBooksModel = new DefaultTableModel() {
+        // disable to edit table
+        public boolean isCellEditable(int rowIndex, int mColIndex) {
+            return false;
+        }
+    };
     /**
      * Creates new form ViewOrderDetailsFrame
      */
@@ -65,6 +69,7 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
         txtCreatedAt.setText(createdAt);
         txtCreatedBy.setText(createdBy);
         txtBoughtBy.setText(boughtBy);
+        txtTotalMoney.setText(Integer.toString(order.getSumCost()));
     }
 
     private void initTable() {
@@ -78,7 +83,6 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
   
     private void fillTableBooksInOrder() {
         ArrayList<OrderDetailPOJO> listBooksInOrder = getBooksInOrder(idOrder);
-        int totalMoney = 0;
         tableBoughtBooksModel.setRowCount(0);
 
         for (int i = 0; i < listBooksInOrder.size(); i++) {
@@ -86,13 +90,10 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
             double percentSale = listBooksInOrder.get(i).getPercentSale();
             int quantity = listBooksInOrder.get(i).getQuantity();
             int price = listBooksInOrder.get(i).getPrice();
-            price = (int)(price - price * percentSale);
-            totalMoney += price;
 
             tableBoughtBooksModel.addRow(new String[] { nameBook, String.valueOf(percentSale), String.valueOf(quantity), String.valueOf(price) });
         }
         tableBoughtBooksModel.fireTableDataChanged();
-        txtTotalMoney.setText(Integer.toString(totalMoney));
     }
     
     /**
@@ -133,6 +134,7 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Bought by:");
 
+        txtId.setEditable(false);
         txtId.setText("jTextField1");
         txtId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtId.setPreferredSize(new java.awt.Dimension(64, 25));
@@ -142,10 +144,12 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
             }
         });
 
+        txtCreatedAt.setEditable(false);
         txtCreatedAt.setText("jTextField2");
         txtCreatedAt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtCreatedAt.setPreferredSize(new java.awt.Dimension(64, 25));
 
+        txtCreatedBy.setEditable(false);
         txtCreatedBy.setText("jTextField3");
         txtCreatedBy.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtCreatedBy.setPreferredSize(new java.awt.Dimension(64, 25));
@@ -155,6 +159,7 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
             }
         });
 
+        txtBoughtBy.setEditable(false);
         txtBoughtBy.setText("jTextField4");
         txtBoughtBy.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtBoughtBy.setPreferredSize(new java.awt.Dimension(64, 25));
@@ -184,6 +189,7 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Total Money: ");
 
+        txtTotalMoney.setEditable(false);
         txtTotalMoney.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtTotalMoney.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +197,7 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
             }
         });
 
-        btnUpdate.setText("Update");
+        btnUpdate.setText("Edit");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -276,7 +282,7 @@ public class ViewOrderDetailsFrame extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>                       
 
     private void tableBoughtBooksMouseClicked(java.awt.event.MouseEvent evt) {                                              
         
