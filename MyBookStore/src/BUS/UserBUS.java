@@ -27,4 +27,9 @@ public class UserBUS {
 
     return userDao.insert(userPOJO);
   }
+  
+  public UserPOJO getUserByIdAccount(String idAccount) {
+      UserDAO userDAO = new UserDAO();
+      return userDAO.getUserByIdAccount(idAccount);
+  }
 }

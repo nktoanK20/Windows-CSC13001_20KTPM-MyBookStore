@@ -11,14 +11,14 @@ package POJO;
 public class CustomerPOJO {
     String id;
     String name;
-    boolean officialCustomer;
+    int officialCustomer;
     double discount;
     
     public CustomerPOJO() {
     
     }
 
-    public CustomerPOJO(String id, String name, boolean officialCustomer, double discount) {
+    public CustomerPOJO(String id, String name, int officialCustomer, double discount) {
         this.id = id;
         this.name = name;
         this.officialCustomer = officialCustomer;
@@ -41,11 +41,11 @@ public class CustomerPOJO {
         this.name = name;
     }
 
-    public boolean isOfficialCustomer() {
+    public int getOfficialCustomer() {
         return officialCustomer;
     }
 
-    public void setOfficialCustomer(boolean officialCustomer) {
+    public void setOfficialCustomer(int officialCustomer) {
         this.officialCustomer = officialCustomer;
     }
 

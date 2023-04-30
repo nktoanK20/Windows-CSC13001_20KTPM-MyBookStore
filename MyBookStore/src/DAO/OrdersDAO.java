@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import POJO.OrderDetailPOJO;
 import POJO.OrdersPOJO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -96,14 +97,14 @@ public class OrdersDAO {
             Connection connection = Database.createConnection();
             Statement statement;
             statement = connection.createStatement();
-            String query = "SELECT * FROM orders";
+            String query = "SELECT id, create_at, (SELECT name FROM user WHERE create_by = user.id) AS name_employee, (SELECT name FROM customer WHERE bought_by = customer.id) AS name_customer, sum_cost FROM orders";
             ResultSet rs = statement.executeQuery(query);
             
             while(rs.next()){
                 String id = rs.getString("id");
                 String createAt = rs.getString("create_at");
-                String createBy = rs.getString("create_by");
-                String boughtBy = rs.getString("bought_by");
+                String createBy = rs.getString("name_employee");
+                String boughtBy = rs.getString("name_customer");
                 int sumCost = rs.getInt("sum_cost");
       
                 OrdersPOJO st = new OrdersPOJO(id, createAt, createBy, boughtBy, sumCost);
@@ -119,6 +120,39 @@ public class OrdersDAO {
         return ans;
     }
     
+    public OrdersPOJO getOrdersById(String idOrder){
+        OrdersPOJO ans = null;
+        try {
+            Connection connection = Database.createConnection();
+            
+            //Prepared statement
+            String query = "SELECT id, create_at, bought_by, (SELECT name FROM user WHERE create_by = user.id) AS name_employee, (SELECT name FROM customer WHERE bought_by = customer.id) AS name_customer, sum_cost FROM orders WHERE id=?";
+            PreparedStatement pstmt = null;
+            pstmt = connection.prepareStatement(query);
+            
+            //Set parameters
+            pstmt.setString(1, idOrder);
+            
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                String createAt = rs.getString("create_at");
+                String boughtById = rs.getString("bought_by");
+                String createBy = rs.getString("name_employee");
+                String nameBoughtBy = rs.getString("name_customer");
+                int sumCost = rs.getInt("sum_cost");
+      
+                ans = new OrdersPOJO(idOrder, createAt, createBy, nameBoughtBy, boughtById, sumCost);
+            }
+            rs.close();
+            pstmt.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ans = null;
+        }
+        return ans;
+    }
+      
     public List<OrdersPOJO> getOrdersByFromToDate(String fromDate, String toDate){
         List<OrdersPOJO> ans = null;
         try {
@@ -126,7 +160,7 @@ public class OrdersDAO {
             Connection connection = Database.createConnection();
             
             //Prepared statement
-            String query = "SELECT * FROM orders where create_at >= ? and create_at <= ?";
+            String query = "SELECT id, create_at, (SELECT name FROM user WHERE create_by = user.id) AS name_employee, (SELECT name FROM customer WHERE bought_by = customer.id) AS name_customer, sum_cost FROM orders where create_at >= ? and create_at <= ?";
             PreparedStatement pstmt = null;
             pstmt = connection.prepareStatement(query);
             
@@ -138,8 +172,8 @@ public class OrdersDAO {
             while(rs.next()){
                 String id = rs.getString("id");
                 String createAt = rs.getString("create_at");
-                String createBy = rs.getString("create_by");
-                String boughtBy = rs.getString("bought_by");
+                String createBy = rs.getString("name_employee");
+                String boughtBy = rs.getString("name_customer");
                 int sumCost = rs.getInt("sum_cost");
       
                 OrdersPOJO st = new OrdersPOJO(id, createAt, createBy, boughtBy, sumCost);
@@ -162,7 +196,7 @@ public class OrdersDAO {
             Connection connection = Database.createConnection();
             
             //Prepared statement
-            String query = "SELECT * FROM orders where MONTH(create_at) = ? AND YEAR(create_at) = ?";
+            String query = "SELECT id, create_at, (SELECT name FROM user WHERE create_by = user.id) AS name_employee, (SELECT name FROM customer WHERE bought_by = customer.id) AS name_customer, sum_cost FROM orders where MONTH(create_at) = ? AND YEAR(create_at) = ?";
             PreparedStatement pstmt = null;
             pstmt = connection.prepareStatement(query);
             
@@ -174,8 +208,8 @@ public class OrdersDAO {
             while(rs.next()){
                 String id = rs.getString("id");
                 String createAt = rs.getString("create_at");
-                String createBy = rs.getString("create_by");
-                String boughtBy = rs.getString("bought_by");
+                String createBy = rs.getString("name_employee");
+                String boughtBy = rs.getString("name_customer");
                 int sumCost = rs.getInt("sum_cost");
       
                 OrdersPOJO st = new OrdersPOJO(id, createAt, createBy, boughtBy, sumCost);
@@ -191,4 +225,25 @@ public class OrdersDAO {
         return ans;
     }
     
+    public boolean deleteOrder(String idOrder) {
+        try {
+                Connection connection =Database.createConnection();
+
+                //Prepared statement
+                String query = "DELETE FROM orders WHERE id=?";
+                PreparedStatement pstmt = null;
+                pstmt = connection.prepareStatement(query);
+                //Set parameters
+                pstmt.setString(1, idOrder);
+                
+                pstmt.executeUpdate();
+
+                pstmt.close();
+                connection.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+        return true;
+    }
 }

@@ -13,6 +13,9 @@ public class OrderDetailPOJO {
     String idBook;
     int quantity;
     int price;
+    String nameBook;
+    double percentSale;
+    
     
     public OrderDetailPOJO() {
     
@@ -21,6 +24,15 @@ public class OrderDetailPOJO {
     public OrderDetailPOJO(String idOrder, String idBook, int quantity, int price) {
         this.idOrder = idOrder;
         this.idBook = idBook;
+        this.quantity = quantity;
+        this.price = price;
+    }
+    
+    public OrderDetailPOJO(String idOrder, String idBook, String nameBook, double percentSale, int quantity, int price) {
+        this.idOrder = idOrder;
+        this.idBook = idBook;
+        this.nameBook = nameBook;
+        this.percentSale = percentSale;
         this.quantity = quantity;
         this.price = price;
     }
@@ -55,5 +67,21 @@ public class OrderDetailPOJO {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getNameBook() {
+        return nameBook;
+    }
+
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
+    }
+
+    public double getPercentSale() {
+        return percentSale;
+    }
+
+    public void setPercentSale(double percentSale) {
+        this.percentSale = percentSale;
     }
 }

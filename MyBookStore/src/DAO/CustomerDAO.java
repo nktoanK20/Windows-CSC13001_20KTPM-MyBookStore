@@ -42,28 +42,64 @@ public class CustomerDAO {
     }
     
     public boolean addNewCustomer(CustomerPOJO cus) {
-            try {
-                Connection connection = Database.createConnection();
+        try {
+            Connection connection = Database.createConnection();
 
-                //Prepared statement
-                String query = "INSERT INTO customer " + "VALUES(?, ?, ?, ?)";
-                PreparedStatement pstmt = null;
-                pstmt = connection.prepareStatement(query);
-                
-                //Set parameters
-                pstmt.setString(1, cus.getId());
-                pstmt.setString(2, cus.getName());
-                pstmt.setBoolean(3, cus.isOfficialCustomer());
-                pstmt.setDouble(4, cus.getDiscount());
+            //Prepared statement
+            String query = "INSERT INTO customer " + "VALUES(?, ?, ?, ?)";
+            PreparedStatement pstmt = null;
+            pstmt = connection.prepareStatement(query);
 
-                pstmt.executeUpdate();
+            //Set parameters
+            pstmt.setString(1, cus.getId());
+            pstmt.setString(2, cus.getName());
+            pstmt.setInt(3, cus.getOfficialCustomer());
+            pstmt.setDouble(4, cus.getDiscount());
 
-                pstmt.close();
-                connection.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
-                return false;
-            }
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
         return true;
+    }
+    
+    public CustomerPOJO getCustomerById(String idCustomer) {
+        CustomerPOJO customer = null;
+        Connection connection = Database.createConnection();
+
+        try {
+            String sql = "SELECT * FROM customer WHERE id=?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, idCustomer);
+
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                String id = rs.getString("id");
+                String name = rs.getString("name");
+                int officialCustomer = rs.getInt("official_customer");
+                double discount = rs.getDouble("discount");
+
+                customer = new CustomerPOJO(id, name, officialCustomer, discount);
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerPOJO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                  connection.close();
+                } catch (SQLException ex) {
+                  ex.printStackTrace();
+                }
+            }
+        }
+      
+        return customer;
     }
 }

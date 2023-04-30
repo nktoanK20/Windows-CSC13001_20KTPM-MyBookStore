@@ -145,4 +145,40 @@ public class UserDAO {
     }
     return result;
   }
+  
+  public UserPOJO getUserByIdAccount(String idAccount) {
+    UserPOJO user = null;
+    Connection connection = Database.createConnection();
+      
+    try {
+        String sql = "SELECT * FROM user WHERE id_account=?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, idAccount);
+
+        ResultSet rs = statement.executeQuery();
+        while(rs.next()){
+            String id = rs.getString("id");
+            String name = rs.getString("name");
+            String address = rs.getString("address");
+            int role = rs.getInt("role");
+            
+            user = new UserPOJO(id, name, idAccount, address, role);
+        }
+        rs.close();
+        statement.close();
+    } catch (SQLException ex) {
+      Logger.getLogger(UserPOJO.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+      if (connection != null) {
+        try {
+          connection.close();
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+      }
+    }
+      
+      return user;
+    }
 }

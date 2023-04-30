@@ -24,4 +24,9 @@ public class AccountBUS {
         AccountDAO accountDAO = new AccountDAO();
         return accountDAO.insert(accountPOJO);
     }
+    
+    public AccountPOJO getAccountByUsername(String username) {
+        AccountDAO accountDAO = new AccountDAO();
+        return accountDAO.getAccountByUsername(username);
+    }
 }
