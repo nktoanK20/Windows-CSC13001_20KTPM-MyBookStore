@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="MyBookStore">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/MyBookStore/mysql-connector-j-8.0.31.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyBookStore/jcalendar-1.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/MyBookStore/jdatepicker-1.3.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

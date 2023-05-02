@@ -35,7 +35,7 @@ public class LoginForm extends JFrame implements ActionListener {
         // setUndecorated(true);
 
         setSize(900, 600);
-        // setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         userInterface();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

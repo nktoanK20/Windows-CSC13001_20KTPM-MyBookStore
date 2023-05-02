@@ -20,7 +20,7 @@ public class Database {
 
             String DB_URL = "jdbc:mysql://localhost/book-store-management-db";
             String USER = "root";
-            String PASS = "huuloc123";
+            String PASS = "root";
 
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
         } catch (SQLException ex) {

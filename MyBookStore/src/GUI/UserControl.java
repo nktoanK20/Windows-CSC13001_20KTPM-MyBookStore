@@ -93,6 +93,8 @@ public class UserControl extends JFrame {
 	 * Create the frame.
 	 */
 	public UserControl(String username) {
+		this.setResizable(false);
+
 		this.setUsername(username);
 		user = this.getUser();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -162,7 +164,7 @@ public class UserControl extends JFrame {
 		JLabel greetingLabel = new JLabel("Welcome, " + username);
 		greetingLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		greetingLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		greetingLabel.setBounds(209, 66, 268, 31);
+		greetingLabel.setBounds(190, 66, 268, 31);
 		contentPane.add(greetingLabel);
 
 		JButton BookManageBtn = new JButton("Book Management");
@@ -176,7 +178,7 @@ public class UserControl extends JFrame {
 			}
 
 		});
-		BookManageBtn.setBounds(10, 146, 132, 31);
+		BookManageBtn.setBounds(255, 92, 150, 31);
 		contentPane.add(BookManageBtn);
 
 		JButton PromotionManageBtn = new JButton("Promotion Management");
@@ -192,7 +194,7 @@ public class UserControl extends JFrame {
 
 		});
 
-		PromotionManageBtn.setBounds(10, 177, 132, 31);
+		PromotionManageBtn.setBounds(10, 146, 132, 31);
 		contentPane.add(PromotionManageBtn);
 
 		JButton importSheetBtn = new JButton("Import Sheet");

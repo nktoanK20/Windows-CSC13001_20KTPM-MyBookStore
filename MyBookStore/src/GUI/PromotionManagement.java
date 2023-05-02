@@ -59,7 +59,6 @@ public class PromotionManagement extends JFrame implements ActionListener {
         setResizable(true);
         setLayout(new BorderLayout(0, 0));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBackground(Color.BLUE);
         initComponent();
         this.setVisible(true);
     }
@@ -67,7 +66,7 @@ public class PromotionManagement extends JFrame implements ActionListener {
     private void initComponent() {
         menuPane = new JPanel();
         menuPane.setLayout(new FlowLayout(FlowLayout.LEFT));
-        menuPane.setBackground(Color.CYAN);
+        menuPane.setBorder(new LineBorder(Color.BLACK, 3));
 
         backButton = new JButton("Back");
         backButton.setFocusable(false);
@@ -88,7 +87,6 @@ public class PromotionManagement extends JFrame implements ActionListener {
         sidebarPane.setLayout(new BoxLayout(sidebarPane, BoxLayout.Y_AXIS));
         sidebarPane.setPreferredSize(new Dimension(SIDEBAR_PANE_WIDTH, 0));
         sidebarPane.setBorder(new LineBorder(Color.BLACK, 3));
-        sidebarPane.setBackground(Color.GREEN);
 
         allPromotionsButton = new JButton("All Promotions");
         allPromotionsButton.setMaximumSize(new Dimension(SIDEBAR_PANE_WIDTH, 30));

@@ -33,11 +33,10 @@ CREATE TABLE IF NOT EXISTS `account` (
 -- Dumping data for table book-store-management-db.account: ~5 rows (approximately)
 DELETE FROM `account`;
 INSERT INTO `account` (`id`, `username`, `password`, `is_active`) VALUES
-	('ACC01', 'nguyenkhai', '123456789', 1),
-	('ACC02', 'nguyenloc', '123456789', 1),
-	('ACC03', 'nguyenphu', '123456789', 1),
-	('ACC04', 'nguyentoan', '123456789', 1),
-	('ACC05', 'a', 'a', 1);
+	('ACC01', 'nguyenkhai', '5f4dcc3b5aa765d61d8327deb882cf99', 1),
+	('ACC02', 'nguyenloc', '5f4dcc3b5aa765d61d8327deb882cf99', 1),
+	('ACC03', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 1),
+	('ACC04', 'employee', '5f4dcc3b5aa765d61d8327deb882cf99', 1);
 
 -- Dumping structure for table book-store-management-db.author
 CREATE TABLE IF NOT EXISTS `author` (
@@ -75,12 +74,12 @@ CREATE TABLE IF NOT EXISTS `book` (
 
 -- Dumping data for table book-store-management-db.book: ~5 rows (approximately)
 DELETE FROM `book`;
-INSERT INTO `book` (`id`, `name`, `id_publisher`, `price`) VALUES
-	('SACH01', 'Nhà giả kim', 'NXB02', 45000),
-	('SACH02', 'Đắc nhân tâm', 'NXB01', 90000),
-	('SACH03', 'Tế bào gốc', 'NXB03', 50000),
-	('SACH04', 'Lỗ đen', 'NXB05', 85000),
-	('SACH05', 'Vũ Trụ toàn ảnh', 'NXB04', 100000);
+INSERT INTO `book` (`id`, `name`, `id_publisher`, `stock`, `release_date`, `price`) VALUES
+	('SACH01', 'Nhà giả kim', 'NXB02', 100, '2023-05-02', 45000),
+	('SACH02', 'Đắc nhân tâm', 'NXB01', 100, '2023-05-02', 90000),
+	('SACH03', 'Tế bào gốc', 'NXB03', 100, '2023-05-02', 50000),
+	('SACH04', 'Lỗ đen', 'NXB05', 100, '2023-05-02', 85000),
+	('SACH05', 'Vũ Trụ toàn ảnh', 'NXB04', 100, '2023-05-02', 100000);
 
 -- Dumping structure for table book-store-management-db.book_author
 CREATE TABLE IF NOT EXISTS `book_author` (
@@ -145,19 +144,19 @@ INSERT INTO `category` (`id`, `name`, `description`) VALUES
 CREATE TABLE IF NOT EXISTS `customer` (
   `id` varchar(10) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `offical_customer` tinyint(4) DEFAULT 0 COMMENT '1: offical customer\n0: anonymus customer',
+  `official_customer` tinyint(4) DEFAULT 0 COMMENT '1: official customer\n0: anonymus customer',
   `discount` double DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.customer: ~5 rows (approximately)
 DELETE FROM `customer`;
-INSERT INTO `customer` (`id`, `name`, `offical_customer`, `discount`) VALUES
-	('CUS01', 'Lê Văn B', 1, 0.15),
-	('CUS02', 'Trần Văn D', 0, 0),
-	('CUS03', 'Nguyễn Thị C', 0, 0),
-	('CUS04', 'Huỳnh Văn A', 1, 0.1),
-	('CUS05', 'Đỗ Văn E', 1, 0.05);
+INSERT INTO `customer` (`id`, `name`, `official_customer`, `discount`) VALUES
+	('CUS01', 'Lê Văn B', 1, 0.05),
+	('CUS02', 'Anonymous', 0, 0),
+	('CUS03', 'Anonymous', 0, 0),
+	('CUS04', 'Huỳnh Văn A', 1, 0.05),
+	('CUS05', 'Anonymous', 0, 0);
 
 -- Dumping structure for table book-store-management-db.import_sheet
 CREATE TABLE IF NOT EXISTS `import_sheet` (
@@ -260,9 +259,7 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 -- Dumping data for table book-store-management-db.promotion: ~3 rows (approximately)
 DELETE FROM `promotion`;
 INSERT INTO `promotion` (`id`, `name`, `description`, `start_date`, `end_date`, `percent`, `apply_option`, `limit_orders`) VALUES
-	('KM01', 'Khuyến mãi 01', 'Mô tả của khuyến mãi 01', '2022-12-01', '2022-12-05', 0.2, 'All', 50),
-	('KM02', 'Khuyến mãi 02', 'Mô tả của khuyến mãi 02', '2022-10-01', '2022-10-10', 0.05, 'Only Offical Customer', 500),
-	('KM03', 'Khuyến mãi 03', 'Mô tả của khuyến mãi 03', '2021-01-01', '2021-01-05', 0.15, 'All', 70);
+	('KM01', 'Khuyến mãi 01', 'Mô tả của khuyến mãi 01', '2022-12-01', '2024-12-05', 0.2, 'All', 50);
 
 -- Dumping structure for table book-store-management-db.promotion_book
 CREATE TABLE IF NOT EXISTS `promotion_book` (
@@ -277,11 +274,7 @@ CREATE TABLE IF NOT EXISTS `promotion_book` (
 -- Dumping data for table book-store-management-db.promotion_book: ~5 rows (approximately)
 DELETE FROM `promotion_book`;
 INSERT INTO `promotion_book` (`id_promotion`, `id_book`) VALUES
-	('KM01', 'SACH01'),
-	('KM01', 'SACH02'),
-	('KM01', 'SACH04'),
-	('KM02', 'SACH01'),
-	('KM02', 'SACH05');
+	('KM01', 'SACH01');
 
 -- Dumping structure for table book-store-management-db.promotion_order
 CREATE TABLE IF NOT EXISTS `promotion_order` (
@@ -295,11 +288,6 @@ CREATE TABLE IF NOT EXISTS `promotion_order` (
 
 -- Dumping data for table book-store-management-db.promotion_order: ~5 rows (approximately)
 DELETE FROM `promotion_order`;
-INSERT INTO `promotion_order` (`id_promotion`, `id_order`) VALUES
-	('KM01', 'ORD01'),
-	('KM01', 'ORD03'),
-	('KM02', 'ORD02'),
-	('KM02', 'ORD05');
 
 -- Dumping structure for table book-store-management-db.publisher
 CREATE TABLE IF NOT EXISTS `publisher` (
@@ -338,8 +326,7 @@ INSERT INTO `user` (`id`, `name`, `id_account`, `address`, `role`) VALUES
 	('USER01', 'Nguyễn Hữu Khải', 'ACC01', 'Quận 5, TPHCM', 0),
 	('USER02', 'Nguyễn Hữu Lộc', 'ACC02', 'Quận 5, TPHCM', 0),
 	('USER03', 'Nguyễn Văn Phú', 'ACC03', 'Quận 5, TPHCM', 1),
-	('USER04', 'Nguyễn Khánh Toàn', 'ACC04', 'Quận 5, TPHCM', 0),
-	('USER05', 'Trần Văn A', 'ACC05', 'Quận 5, TPHCM', 0);
+	('USER04', 'Nguyễn Khánh Toàn', 'ACC04', 'Quận 5, TPHCM', 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

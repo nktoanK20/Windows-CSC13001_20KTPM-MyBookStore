@@ -197,7 +197,7 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
             int price = (int) (books.get(i).getPrice() * (1 + percentCompareToImportPrice));
             
             // Hiển thị giá mới khi có giảm giá từ promotion
-            if(promotion != null && promotion.getApplyOption().equals("Only Offical Customer")) {
+            if(promotion != null && promotion.getApplyOption().equals("Only Official Customer")) {
                 if(percentSale > 0 && checkboxOfficialCustomer.isSelected()) {
                     price = (int)(price - price * percentSale);
                 }
@@ -829,10 +829,20 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
     private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddBookActionPerformed
         isFirstAdded = true;
         int selectedRowIndex = tableViewBooksList.getSelectedRow();
+        String idBook = tableViewBooksList.getValueAt(selectedRowIndex, 0).toString();
+        for (int i = 0; i < tableViewAddedBooks.getRowCount(); i++){
+            String idAddedBook = tableViewAddedBooks.getValueAt(i, 0).toString();
+            if (idBook.equals(idAddedBook)){
+                return;
+            }
+        }
+
         if(selectedRowIndex > -1) {
             int stock = Integer.parseInt(tableViewBooksList.getValueAt(selectedRowIndex, 4).toString());
             if(stock < 1) {
                 JOptionPane.showMessageDialog(rootPane, "The book is sold off. Please choose another.");
+                return;
+
             } else {
                 stock--;
                 viewBooksListTableModel.setValueAt(stock, selectedRowIndex, 4);
@@ -877,46 +887,6 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
         viewOrders.setVisible(true);
     }// GEN-LAST:event_formWindowClosed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateOrderFrame.class.getName()).log(java.util.logging.Level.SEVERE,
-                    null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateOrderFrame.class.getName()).log(java.util.logging.Level.SEVERE,
-                    null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateOrderFrame.class.getName()).log(java.util.logging.Level.SEVERE,
-                    null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateOrderFrame.class.getName()).log(java.util.logging.Level.SEVERE,
-                    null, ex);
-        }
-        // </editor-fold>
-
-        // </editor-fold>
-
-        /* Create and display the form */
-
-    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton btnAddBook;
