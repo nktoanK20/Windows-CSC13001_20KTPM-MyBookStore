@@ -1,3 +1,0 @@
-employee
-password
-REMEMBER_TRUE

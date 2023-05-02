@@ -229,7 +229,7 @@ public class CategoryDAO {
         return ans;
     }
     
-    public boolean addNewCategory(String dataCategory[]) {
+    public boolean addNewCategory(String[] dataCategory) {
             try {
                 Connection connection = Database.createConnection();
 

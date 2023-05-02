@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import javax.swing.*;
 
@@ -59,13 +60,7 @@ public class LoginForm extends JFrame implements ActionListener {
                     if(myReader.hasNextLine()){
                          buffer = myReader.nextLine();
                     }
-                        if(buffer.equals("REMEMBER_TRUE")){
-
-                            rememberMeCheckBox.setSelected(true);
-
-                        } else{
-                            rememberMeCheckBox.setSelected(false);
-                        }
+                    rememberMeCheckBox.setSelected(buffer.equals("REMEMBER_TRUE"));
                         if(rememberMeCheckBox.isSelected()){
                             user.setText(user_file);
                             pass.setText(password_file);
@@ -89,7 +84,7 @@ public class LoginForm extends JFrame implements ActionListener {
         JPanel left_pan = new JPanel(new BorderLayout());
         left_pan.setBackground(Color.DARK_GRAY);
 
-        JLabel cover = new JLabel(new ImageIcon(getClass().getResource("../images/cover.jpeg")));
+        JLabel cover = new JLabel(new ImageIcon(getClass().getResource("/images/cover.jpeg")));
 
         cover.setHorizontalTextPosition(JLabel.CENTER);
         cover.setVerticalTextPosition(JLabel.BOTTOM);
@@ -213,7 +208,6 @@ public class LoginForm extends JFrame implements ActionListener {
             adminControllerGUI = new AdminControllerGUI(userValue);
             adminControllerGUI.setVisible(true);
             setVisible(false);
-            return;
         }
     }
 

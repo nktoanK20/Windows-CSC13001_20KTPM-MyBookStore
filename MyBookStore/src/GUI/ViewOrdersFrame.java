@@ -28,7 +28,7 @@ import java.awt.event.ActionListener;
 public class ViewOrdersFrame extends javax.swing.JFrame {
     private String typeChooser;
     private int totalCost;
-    private List<OrdersPOJO> orders;
+    private final List<OrdersPOJO> orders;
     String username;
 
     public String getUsername() {

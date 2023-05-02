@@ -34,7 +34,7 @@ import java.util.*;
 
 public class AdminControllerGUI extends JFrame {
 
-    private JPanel contentPane;
+    private final JPanel contentPane;
     private final JPanel topPane = new JPanel();
 
     String username;
@@ -188,7 +188,7 @@ public class AdminControllerGUI extends JFrame {
 //        try {
 //            image = ImageIO.read(new File("../images/cover.jpeg"));
 //            JLabel imageLable = new JLabel(new ImageIcon(image));
-            JLabel imageLable = new JLabel(new ImageIcon(getClass().getResource("../images/hieu-sach-nha-nam-214377.jpg")));
+            JLabel imageLable = new JLabel(new ImageIcon(getClass().getResource("/images/hieu-sach-nha-nam-214377.jpg")));
 
             imageLable.setBounds(152, 129, 345, 253);
             contentPane.add(imageLable);

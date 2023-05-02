@@ -1024,7 +1024,7 @@ public class PromotionManagement extends JFrame implements ActionListener {
 
     // Represents items in the list that can be selected
     class CheckboxListItem {
-        private String label;
+        private final String label;
         private boolean isSelected = false;
 
         public CheckboxListItem(String label) {

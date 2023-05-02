@@ -38,14 +38,14 @@ import javax.swing.JScrollBar;
 
 public class publisherGUI extends JFrame {
 
-    private JPanel contentPane;
-    private JTextField searchIDInput;
-    private JTextField searchNameInput;
-    private JTable listPublisherTable;
-    private JTextField manageIDInput;
-    private JTextField manageNameInput;
-    private JTextField manageAddressInput;
-    private JTextField managePhoneInput;
+    private final JPanel contentPane;
+    private final JTextField searchIDInput;
+    private final JTextField searchNameInput;
+    private final JTable listPublisherTable;
+    private final JTextField manageIDInput;
+    private final JTextField manageNameInput;
+    private final JTextField manageAddressInput;
+    private final JTextField managePhoneInput;
     String username;
 
     public void closeFrame() {

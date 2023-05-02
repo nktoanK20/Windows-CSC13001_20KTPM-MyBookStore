@@ -33,7 +33,7 @@ import java.util.*;
 public class UserControl extends JFrame {
 	UserPOJO user;
 	String username;
-	private JPanel contentPane;
+	private final JPanel contentPane;
 	private final JPanel topPane = new JPanel();
 	BookManagement bookControlGUI;
 	PromotionManagement promotionControlGUI;
@@ -272,7 +272,7 @@ public class UserControl extends JFrame {
 		contentPane.add(publisherManageBtn);
 //		BufferedImage image;
 //		try {
-			JLabel imageLable = new JLabel(new ImageIcon(getClass().getResource("../images/hieu-sach-nha-nam-214377.jpg")));
+			JLabel imageLable = new JLabel(new ImageIcon(getClass().getResource("/images/hieu-sach-nha-nam-214377.jpg")));
 
 			imageLable.setBounds(152, 129, 345, 253);
 			contentPane.add(imageLable);

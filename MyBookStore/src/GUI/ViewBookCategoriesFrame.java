@@ -258,7 +258,7 @@ public class ViewBookCategoriesFrame extends javax.swing.JFrame {
                 new String[] {
                         "Title 1", "Title 2", "Title 3", "Title 4"
                 }) {
-            boolean[] canEdit = new boolean[] {
+            final boolean[] canEdit = new boolean[] {
                     false, false, false, false
             };
 
@@ -478,11 +478,7 @@ public class ViewBookCategoriesFrame extends javax.swing.JFrame {
             String isEnabledCategoryStr = tableViewCategories.getValueAt(selectedRow, 3).toString();
             boolean isEnabledCategory;
 
-            if (isEnabledCategoryStr.equals("Yes")) {
-                isEnabledCategory = true;
-            } else {
-                isEnabledCategory = false;
-            }
+            isEnabledCategory = isEnabledCategoryStr.equals("Yes");
 
             EditCategoryFrame editCategory = new EditCategoryFrame(idCategory,
                     nameCategory, descriptionCategory, isEnabledCategory);

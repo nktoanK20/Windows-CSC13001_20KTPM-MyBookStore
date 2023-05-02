@@ -42,14 +42,14 @@ import javax.swing.JTable;
 
 public class importSheet extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField idInput;
-	private JTable listImportBookTable;
-	private JLabel totalCostValueLabel;
-	private JTextField quantityInput;
-	private JTextField priceInput;
-	private JTextField idBookInput;
-	private JTextField nameBookInput;
+	private final JPanel contentPane;
+	private final JTextField idInput;
+	private final JTable listImportBookTable;
+	private final JLabel totalCostValueLabel;
+	private final JTextField quantityInput;
+	private final JTextField priceInput;
+	private final JTextField idBookInput;
+	private final JTextField nameBookInput;
 	JComboBox employeeCombobox;
 	JComboBox dayComboBox;
 	JComboBox monthComboBox;
@@ -92,7 +92,7 @@ public class importSheet extends JFrame {
 
 	public ArrayList<BookPOJO> getBookEnabled() {
 		BookBUS bookBus = new BookBUS();
-		ArrayList<BookPOJO> listBook = bookBus.getBookNotDisable();
+		ArrayList<BookPOJO> listBook = BookBUS.getBookNotDisable();
 		return listBook;
 	}
 

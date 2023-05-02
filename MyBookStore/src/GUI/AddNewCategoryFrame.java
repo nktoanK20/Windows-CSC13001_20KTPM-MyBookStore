@@ -209,7 +209,7 @@ public class AddNewCategoryFrame extends javax.swing.JFrame {
 
         int numberID = Integer.parseInt(numberPart) + 1;
         if(numberID < 10) {
-            numberPart = "0" + Integer.toString(numberID); 
+            numberPart = "0" + numberID;
         }
         else {
             numberPart = Integer.toString(numberID);
@@ -224,7 +224,7 @@ public class AddNewCategoryFrame extends javax.swing.JFrame {
         String fieldID = textFieldID.getText();
         String fieldName = textFieldName.getText();
         String fieldDescription = textFieldDescription.getText();
-        String dataCategory[] = {fieldID, fieldName, fieldDescription};
+        String[] dataCategory = {fieldID, fieldName, fieldDescription};
         
         if(fieldID.equals("") || fieldName.equals("") || fieldDescription.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Please enter full properties!", "Warning message", WARNING_MESSAGE);

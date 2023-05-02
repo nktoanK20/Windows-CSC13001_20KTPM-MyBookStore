@@ -1,8 +1,569 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MyBookStore:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a35474a6-2d9c-48f3-abbc-0738225314d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/MyBookStore_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Java_20CLC_KTPM3_Group04.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/MyBookStore.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java-20CLC-KTPM3-Group04.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/Java-20CLC-KTPM3-Group04.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyBookStore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/ant.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/AccountBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/AuthorBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/BookBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/CategoryBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/CustomerBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/ImportSheetBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/OrderDetailBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/OrdersBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/PromotionBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/PromotionStatisticsBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/PublisherBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/StatisticsBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/BUS/UserBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/AccountDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/AuthorDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/BookDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/CategoryDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/CustomerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/ImportSheetDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/OrderDetailDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/OrdersDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/PromotionDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/PromotionStatisticsDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/PublisherDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/StatisticsDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/DAO/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AddNewCategoryFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$ChangePasswordForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI$InfoFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminControllerGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement$ButtonEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement$ButtonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement$CreateNewAccountUserFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement$InfoFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement$ResetPassFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AdminManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/AuthorGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$AddBookFormPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$AddBookFormPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$AddBookFormPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$AddBookFormPanel$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$AddBookFormPanel$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$AddBookFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$ButtonEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$ButtonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$CheckboxListItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$CheckboxListRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$EditBookDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$EditBookDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$EditBookDialog$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$EditBookDialog$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$EditBookDialog$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$EditBookDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$ShowAuthorListDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement$ShowCategoryListDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/BookManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/CreateOrderFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/EditCategoryFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/LoginForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$AddPromotionFormPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$AddPromotionFormPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$AddPromotionFormPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$AddPromotionFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$ButtonEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$ButtonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$CheckboxListItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$CheckboxListRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$DateLabelFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$EditPromotionDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$EditPromotionDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$EditPromotionDialog$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$EditPromotionDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement$ShowListOfBooksAppliedDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/PromotionManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/SpringUtilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$ChangePasswordForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl$InfoFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/UserControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewBookCategoriesFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewDetailStatisticPromotionFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewDetailStatisticPromotionFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewDetailStatisticPromotionFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewDetailStatisticPromotionFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewDetailStatisticPromotionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewOrdersFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewRevenueStatisticsFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/ViewTopsInPromotionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/banner_promotion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/importSheet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/listImportSheet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/listImportSheet$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/listImportSheet$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/listImportSheet$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/listImportSheet$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/listImportSheet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/publisherGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/statistic_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/statistic_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/GUI/statistic_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/Java-20CLC-KTPM3-Group04.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/AccountPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/AuthorPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/BookInImportSheetPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/BookPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/CategoryPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/CustomerPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/ImportSheetPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/OrderDetailPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/OrdersPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/PromotionPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/PromotionStatisticsPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/PromotionTopsPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/PublisherPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/PublisherPOJO.java~merged" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/StatisticsPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/POJO/UserPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/.netbeans_update_resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/BUS/CategoryBU.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/DAO/CategoryDA.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/GUI/banner_promotion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/GUI/statistic_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/GUI/statistic_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/GUI/statistic_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/build/classes/POJO/BookCategoryPOJO.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/images/admin-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/images/cover.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/images/hieu-sach-nha-nam-214377.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/jcalendar-1.1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/jdatepicker-1.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/mysql-connector-j-8.0.31.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/GUI/banner_promotion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/GUI/statistic_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/GUI/statistic_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/GUI/statistic_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/POJO/PublisherPOJO.java~merged" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/images/admin-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/images/cover.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java-20CLC-KTPM3-Group04/src/images/hieu-sach-nha-nam-214377.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/AccountBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/AuthorBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/BookBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/CategoryBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/CustomerBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/ImportSheetBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/OrderDetailBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/OrdersBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/PromotionBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/PromotionStatisticsBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/PublisherBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/StatisticsBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/BUS/UserBUS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/AccountDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/AuthorDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/BookDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/CategoryDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/CustomerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/ImportSheetDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/OrderDetailDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/OrdersDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/PromotionDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/PromotionStatisticsDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/PublisherDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/StatisticsDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/DAO/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AddNewCategoryFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$ChangePasswordForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI$InfoFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminControllerGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement$ButtonEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement$ButtonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement$CreateNewAccountUserFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement$InfoFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement$ResetPassFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AdminManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/AuthorGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$AddBookFormPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$AddBookFormPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$AddBookFormPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$AddBookFormPanel$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$AddBookFormPanel$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$AddBookFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$ButtonEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$ButtonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$CheckboxListItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$CheckboxListRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$EditBookDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$EditBookDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$EditBookDialog$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$EditBookDialog$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$EditBookDialog$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$EditBookDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$ShowAuthorListDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement$ShowCategoryListDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/BookManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/CreateOrderFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/EditCategoryFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/LoginForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$AddPromotionFormPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$AddPromotionFormPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$AddPromotionFormPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$AddPromotionFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$ButtonEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$ButtonRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$CheckboxListItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$CheckboxListRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$DateLabelFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$EditPromotionDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$EditPromotionDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$EditPromotionDialog$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$EditPromotionDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement$ShowListOfBooksAppliedDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/PromotionManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/SpringUtilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$ChangePasswordForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl$InfoFormPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/UserControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewBookCategoriesFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewDetailStatisticPromotionFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewDetailStatisticPromotionFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewDetailStatisticPromotionFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewDetailStatisticPromotionFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewDetailStatisticPromotionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewOrdersFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewRevenueStatisticsFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/ViewTopsInPromotionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/banner_promotion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/importSheet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/listImportSheet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/listImportSheet$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/listImportSheet$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/listImportSheet$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/listImportSheet$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/listImportSheet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/publisherGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/statistic_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/statistic_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/GUI/statistic_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/AccountPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/AuthorPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/BookInImportSheetPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/BookPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/CategoryPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/CustomerPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/ImportSheetPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/OrderDetailPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/OrdersPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/PromotionPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/PromotionStatisticsPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/PromotionTopsPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/PublisherPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/PublisherPOJO.java~merged" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/StatisticsPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/POJO/UserPOJO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/images/admin-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/images/cover.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyBookStore/images/hieu-sach-nha-nam-214377.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/CategoryBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CategoryBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/AccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/AccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AddNewCategoryFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AddNewCategoryFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AdminControllerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AdminControllerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AdminManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AdminManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AuthorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AuthorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BookManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BookManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/CreateOrderFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CreateOrderFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/EditCategoryFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/EditCategoryFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PromotionManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PromotionManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UpdateOrderFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UpdateOrderFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/UserControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/UserControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewBookCategoriesFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewBookCategoriesFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewDetailStatisticPromotionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewDetailStatisticPromotionFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewOrderDetailsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewOrderDetailsFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewOrdersFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewOrdersFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewRevenueStatisticsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewRevenueStatisticsFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/banner_promotion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/importSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/importSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/listImportSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listImportSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/publisherGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/publisherGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/statistic_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/statistic_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/statistic_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Windows-CSC13001_20KTPM-MyBookStore.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +572,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PEyBOI4Zeo77YM3ScIODjoyX5s" />
   <component name="ProjectViewState">
@@ -21,7 +585,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/OneDrive/Documents/GitHub/Windows-CSC13001_20KTPM-MyBookStore"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "E:/OneDrive/Documents/GitHub/Windows-CSC13001_20KTPM-MyBookStore/MyBookStore",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.21518151",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

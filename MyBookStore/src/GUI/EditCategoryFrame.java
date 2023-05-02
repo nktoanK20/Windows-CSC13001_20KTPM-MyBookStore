@@ -37,7 +37,7 @@ public class EditCategoryFrame extends javax.swing.JFrame {
         textFieldName.setText(currentTextFieldName);
         textFieldDescription.setText(currentTextFieldDescription);
         
-        if(isEnabled == true) {
+        if(isEnabled) {
             btnEnable.setEnabled(false);
             btnDisable.setEnabled(true);
         } else {

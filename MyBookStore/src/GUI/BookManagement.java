@@ -319,7 +319,7 @@ public class BookManagement extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         contentPane.removeAll();
-        if ((JButton) e.getSource() == filterButton) {
+        if (e.getSource() == filterButton) {
             isFiltering = true;
             refreshBookTable();
             revalidate();
@@ -1247,7 +1247,7 @@ public class BookManagement extends JFrame implements ActionListener {
 
     // Represents items in the list that can be selected
     class CheckboxListItem {
-        private String label;
+        private final String label;
         private boolean isSelected = false;
 
         public CheckboxListItem(String label) {

@@ -365,7 +365,7 @@ public class ViewRevenueStatisticsFrame extends javax.swing.JFrame {
                 new String[] {
                         "Title 1", "Title 2", "Title 3", "Title 4"
                 }) {
-            boolean[] canEdit = new boolean[] {
+            final boolean[] canEdit = new boolean[] {
                     false, false, false, false
             };
 
@@ -394,11 +394,11 @@ public class ViewRevenueStatisticsFrame extends javax.swing.JFrame {
         textFieldTotalRevenue.setMargin(new java.awt.Insets(2, 12, 2, 6));
         textFieldTotalRevenue.setMinimumSize(new java.awt.Dimension(96, 96));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/statistic_2.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/statistic_2.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/statistic_1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/statistic_1.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/statistic_3.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/statistic_3.png"))); // NOI18N
 
         javax.swing.GroupLayout panelImageLayout = new javax.swing.GroupLayout(panelImage);
         panelImage.setLayout(panelImageLayout);

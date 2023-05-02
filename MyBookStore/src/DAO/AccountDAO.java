@@ -79,7 +79,7 @@ public class AccountDAO {
         boolean result = false;
         Connection connection = Database.createConnection();
         Boolean setActive = true;
-        if (account.getIsActive() == true) {
+        if (account.getIsActive()) {
             setActive = false;
         }
         try {

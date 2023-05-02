@@ -31,9 +31,9 @@ import java.awt.event.ActionEvent;
 
 public class listImportSheet extends JFrame {
 
-	private JPanel contentPane;
-	private JTable listImportBookTable;
-	private JTable listImportSheetTable;
+	private final JPanel contentPane;
+	private final JTable listImportBookTable;
+	private final JTable listImportSheetTable;
 
 	/**
 	 * Launch the application.

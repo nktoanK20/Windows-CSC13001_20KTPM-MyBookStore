@@ -44,7 +44,7 @@ public class CategoryBUS {
         return da.getDisabledAllSorted(typeSort, orderSort);
     }
     
-    public boolean addNewCategory(String dataCategory[]) {
+    public boolean addNewCategory(String[] dataCategory) {
         CategoryDAO da = new CategoryDAO();
         
         return da.addNewCategory(dataCategory);

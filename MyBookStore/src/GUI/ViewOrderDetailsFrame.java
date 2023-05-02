@@ -25,10 +25,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewOrderDetailsFrame extends javax.swing.JFrame {
     private ArrayList<OrderDetailPOJO> listBooksInOrder;
-    private String idOrder;
-    private String username;
+    private final String idOrder;
+    private final String username;
     private OrdersPOJO order;
-    private DefaultTableModel tableBoughtBooksModel = new DefaultTableModel() {
+    private final DefaultTableModel tableBoughtBooksModel = new DefaultTableModel() {
         // disable to edit table
         public boolean isCellEditable(int rowIndex, int mColIndex) {
             return false;

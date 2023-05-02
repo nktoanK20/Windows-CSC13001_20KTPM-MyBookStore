@@ -127,7 +127,7 @@ public class ViewDetailStatisticPromotionFrame extends javax.swing.JFrame {
             }
         });
 
-        labelIconPromotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/banner_promotion.png"))); // NOI18N
+        labelIconPromotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/banner_promotion.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
         jLabel4.setText("Promotion list");

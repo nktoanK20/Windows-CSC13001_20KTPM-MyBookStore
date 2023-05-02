@@ -29,23 +29,23 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class AdminManagement extends JPanel implements ActionListener {
-    private JPanel menuPane;
-    private JButton backBtn;
+    private final JPanel menuPane;
+    private final JButton backBtn;
     JTable accountTable;
 
     private JButton editInfoButton;
     JButton selectedButton;
 
     private final int SIDEBARPANE_WIDTH = 180;
-    private JPanel sidebarPane;
-    private JButton allAccountsButton;
+    private final JPanel sidebarPane;
+    private final JButton allAccountsButton;
     private JButton allUserButton;
     JScrollPane accountTableScroll;
 
-    private JButton addNewAccount;
+    private final JButton addNewAccount;
 
-    private JPanel contentPane;
-    private JLabel contentLabel;
+    private final JPanel contentPane;
+    private final JLabel contentLabel;
     static JFrame frame;
 
     private String username;

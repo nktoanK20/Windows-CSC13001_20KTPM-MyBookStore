@@ -64,9 +64,7 @@ public class CreateOrderFrame extends javax.swing.JFrame {
     DefaultTableModel viewAddedBooksTableModel = new DefaultTableModel() {
         // disable to edit table
         public boolean isCellEditable(int rowIndex, int mColIndex) {
-            if (mColIndex == 1)
-                return true;
-            return false;
+            return mColIndex == 1;
         }
     };
 
@@ -121,7 +119,7 @@ public class CreateOrderFrame extends javax.swing.JFrame {
 
         int numberID = Integer.parseInt(numberPart) + 1;
         if (numberID < 10) {
-            numberPart = "0" + Integer.toString(numberID);
+            numberPart = "0" + numberID;
         } else {
             numberPart = Integer.toString(numberID);
         }
