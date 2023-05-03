@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.4.24-MariaDB - mariadb.org binary distribution
+-- Server version:               10.4.17-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             12.1.0.6537
+-- HeidiSQL Version:             12.4.0.6659
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -14,7 +14,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-DROP DATABASE `book-store-management-db`;
 
 -- Dumping database structure for book-store-management-db
 CREATE DATABASE IF NOT EXISTS `book-store-management-db` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
@@ -30,8 +29,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.account: ~5 rows (approximately)
-DELETE FROM `account`;
+-- Dumping data for table book-store-management-db.account: ~4 rows (approximately)
 INSERT INTO `account` (`id`, `username`, `password`, `is_active`) VALUES
 	('ACC01', 'nguyenkhai', '5f4dcc3b5aa765d61d8327deb882cf99', 1),
 	('ACC02', 'nguyenloc', '5f4dcc3b5aa765d61d8327deb882cf99', 1),
@@ -48,14 +46,15 @@ CREATE TABLE IF NOT EXISTS `author` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.author: ~5 rows (approximately)
-DELETE FROM `author`;
-INSERT INTO `author` (`id`, `name`, `address`, `phone`) VALUES
-	('TG01', 'Paulo Coelho', ' Rio De Janeiro, Rio de Janeiro, Brasil', '01234568'),
-	('TG02', 'Dale Carnegie', 'Forest Hills, Thành phố New York, Tiểu bang New York, Hoa Kỳ', '23654923'),
-	('TG03', 'Paul Knoepfler', 'undefine', '02136486'),
-	('TG04', 'Stephen Hawking', ' Oxford, Vương Quốc Anh', '23652867'),
-	('TG05', 'Michael Talbot', 'Grand Rapids, Michigan, Mỹ', '03265895');
+-- Dumping data for table book-store-management-db.author: ~7 rows (approximately)
+INSERT INTO `author` (`id`, `name`, `address`, `phone`, `is_disabled`) VALUES
+	('TG01', 'Paulo Coelho', ' Rio De Janeiro, Rio de Janeiro, Brasil', '01234568', 0),
+	('TG02', 'Dale Carnegie', 'Forest Hills, Thành phố New York, Tiểu bang New York, Hoa Kỳ', '23654923', 0),
+	('TG03', 'Paul Knoepfler', 'undefine', '02136486', 0),
+	('TG04', 'Stephen Hawking - update', ' Oxford, Vương Quốc Anh', '23652867', 0),
+	('TG05', 'Michael Talbot', 'Grand Rapids, Michigan, Mỹ', '03265895', 0),
+	('TG06', 'NHK-Update', 'Quan 2, TPHCM', '02131354351', 0),
+	('TG07', 'Nguyen Loc', 'Forest Hills, Thành phố New York, Tiểu bang New York, Hoa Kỳ', '23654923', 0);
 
 -- Dumping structure for table book-store-management-db.book
 CREATE TABLE IF NOT EXISTS `book` (
@@ -66,20 +65,42 @@ CREATE TABLE IF NOT EXISTS `book` (
   `stock` int(11) DEFAULT 0,
   `total_purchase` int(11) DEFAULT 0,
   `release_date` date DEFAULT NULL,
-  `is_enabled` tinyint DEFAULT 1,
+  `is_enabled` tinyint(4) DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `FK_book_publisher` (`id_publisher`),
   CONSTRAINT `FK_book_publisher` FOREIGN KEY (`id_publisher`) REFERENCES `publisher` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.book: ~5 rows (approximately)
-DELETE FROM `book`;
-INSERT INTO `book` (`id`, `name`, `id_publisher`, `stock`, `release_date`, `price`) VALUES
-	('SACH01', 'Nhà giả kim', 'NXB02', 100, '2023-05-02', 45000),
-	('SACH02', 'Đắc nhân tâm', 'NXB01', 100, '2023-05-02', 90000),
-	('SACH03', 'Tế bào gốc', 'NXB03', 100, '2023-05-02', 50000),
-	('SACH04', 'Lỗ đen', 'NXB05', 100, '2023-05-02', 85000),
-	('SACH05', 'Vũ Trụ toàn ảnh', 'NXB04', 100, '2023-05-02', 100000);
+-- Dumping data for table book-store-management-db.book: ~28 rows (approximately)
+INSERT INTO `book` (`id`, `name`, `id_publisher`, `price`, `stock`, `total_purchase`, `release_date`, `is_enabled`) VALUES
+	('SACH01', 'Nhà giả kim', 'NXB02', 45000, 450, 0, '2023-05-02', 1),
+	('SACH02', 'Đắc nhân tâm', 'NXB01', 90000, 100, 0, '2023-05-02', 1),
+	('SACH03', 'Tế bào gốc', 'NXB03', 50000, 800, 0, '2023-05-02', 1),
+	('SACH04', 'Lỗ đen', 'NXB05', 85000, 100, 0, '2023-05-02', 1),
+	('SACH05', 'Vũ Trụ toàn ảnh', 'NXB04', 100000, 100, 0, '2023-05-02', 1),
+	('SACH08', 'Test', 'NXB02', 25000, 150, 0, '2023-05-03', 1),
+	('SACH09', 'Conan', 'NXB03', 45000, 250, 0, '2023-05-03', 1),
+	('SACH10', 'The Alchemist', 'NXB01', 45000, 200, 0, '2023-05-03', 1),
+	('SACH11', '1984', 'NXB02', 35000, 150, 0, '2023-05-01', 1),
+	('SACH12', 'To Kill a Mockingbird', 'NXB03', 50000, 350, 0, '2023-05-02', 1),
+	('SACH13', 'The Great Gatsby', 'NXB02', 60000, 200, 0, '2023-04-01', 1),
+	('SACH14', 'Pride and Prejudice', 'NXB01', 35100, 350, 0, '2023-04-12', 1),
+	('SACH15', 'The Catcher in the Rye', 'NXB03', 45000, 250, 0, '2023-04-16', 1),
+	('SACH16', 'The Lord of the Rings', 'NXB05', 90000, 350, 0, '2023-04-18', 1),
+	('SACH17', 'The Hobbit', 'NXB02', 48000, 100, 0, '2023-04-16', 1),
+	('SACH18', 'Harry Potter', 'NXB03', 50000, 120, 0, '2023-04-16', 1),
+	('SACH19', 'The Hunger Games', 'NXB02', 35000, 100, 0, '2023-04-16', 1),
+	('SACH20', 'Brave New World', 'NXB01', 50000, 150, 0, '2023-04-16', 1),
+	('SACH21', 'Animal Farm', 'NXB05', 35000, 200, 0, '2023-03-12', 1),
+	('SACH22', 'The Chronicles of Narnia', 'NXB03', 45000, 250, 0, '2023-03-16', 1),
+	('SACH24', 'One Hundred Years of Solitude', 'NXB05', 90000, 350, 0, '2023-03-16', 1),
+	('SACH25', 'The Picture of Dorian Gray', 'NXB01', 48000, 250, 0, '2023-02-14', 1),
+	('SACH26', 'The Bell Jar', 'NXB02', 50000, 300, 0, '2023-02-14', 1),
+	('SACH27', 'The Color Purple', 'NXB01', 40000, 250, 0, '2023-02-14', 1),
+	('SACH28', 'The Handmaid\'s Tale', 'NXB03', 70000, 300, 0, '2023-02-20', 1),
+	('SACH29', 'The Kite Runner', 'NXB04', 80000, 200, 0, '2023-02-12', 1),
+	('SACH30', 'The Diary of Anne Frank', 'NXB02', 75000, 150, 0, '2023-02-16', 1),
+	('SACH31', 'ABC', 'NXB01', 45000, 200, 0, '2023-05-03', 1);
 
 -- Dumping structure for table book-store-management-db.book_author
 CREATE TABLE IF NOT EXISTS `book_author` (
@@ -92,7 +113,6 @@ CREATE TABLE IF NOT EXISTS `book_author` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.book_author: ~6 rows (approximately)
-DELETE FROM `book_author`;
 INSERT INTO `book_author` (`id_book`, `id_author`) VALUES
 	('SACH01', 'TG01'),
 	('SACH01', 'TG03'),
@@ -112,7 +132,6 @@ CREATE TABLE IF NOT EXISTS `book_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.book_category: ~6 rows (approximately)
-DELETE FROM `book_category`;
 INSERT INTO `book_category` (`id_book`, `id_category`) VALUES
 	('SACH01', 'CATG02'),
 	('SACH01', 'CATG03'),
@@ -131,14 +150,13 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.category: ~6 rows (approximately)
-DELETE FROM `category`;
-INSERT INTO `category` (`id`, `name`, `description`) VALUES
-	('CATG01', 'Đời sống', 'Giới thiệu về chủ đề đời sống '),
-	('CATG02', 'Khoa học Kỹ thuật', 'Giới thiệu về chủ đề Khoa học, kỹ thuật'),
-	('CATG03', 'Y học', 'Giới thiệu về chủ đề y học'),
-	('CATG04', 'Thời trang', 'Giới thiệu về chủ đề thời trang'),
-	('CATG05', 'Giáo dục', 'Giới thiệu về chủ đề giáo dục'),
-	('CATG06', 'Thiếu nhi', 'Giới thiệu về chủ đề thiếu nhi');
+INSERT INTO `category` (`id`, `name`, `description`, `is_enabled`) VALUES
+	('CATG01', 'Đời sống', 'Giới thiệu về chủ đề đời sống ', 1),
+	('CATG02', 'Khoa học Kỹ thuật', 'Giới thiệu về chủ đề Khoa học, kỹ thuật', 1),
+	('CATG03', 'Y học', 'Giới thiệu về chủ đề y học', 1),
+	('CATG04', 'Thời trang', 'Giới thiệu về chủ đề thời trang', 1),
+	('CATG05', 'Giáo dục', 'Giới thiệu về chủ đề giáo dục', 1),
+	('CATG06', 'Thiếu nhi', 'Giới thiệu về chủ đề thiếu nhi', 1);
 
 -- Dumping structure for table book-store-management-db.customer
 CREATE TABLE IF NOT EXISTS `customer` (
@@ -150,7 +168,6 @@ CREATE TABLE IF NOT EXISTS `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.customer: ~5 rows (approximately)
-DELETE FROM `customer`;
 INSERT INTO `customer` (`id`, `name`, `official_customer`, `discount`) VALUES
 	('CUS01', 'Lê Văn B', 1, 0.05),
 	('CUS02', 'Anonymous', 0, 0),
@@ -170,12 +187,11 @@ CREATE TABLE IF NOT EXISTS `import_sheet` (
   CONSTRAINT `FK_importSheet-user` FOREIGN KEY (`id_employee`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.import_sheet: ~2 rows (approximately)
-DELETE FROM `import_sheet`;
-INSERT INTO `import_sheet` (`id`, `create_at`, `id_employee`, `total_cost`) VALUES
-	('IPS01', '2022-11-10', 'USER01', 200000),
-	('IPS02', '2020-10-10', 'USER02', 300000),
-	('IPS03', '2021-11-11', 'USER04', 400000);
+-- Dumping data for table book-store-management-db.import_sheet: ~3 rows (approximately)
+INSERT INTO `import_sheet` (`id`, `create_at`, `id_employee`, `name`, `total_cost`) VALUES
+	('IPS01', '2022-11-10', 'USER01', NULL, 200000),
+	('IPS02', '2020-10-10', 'USER02', NULL, 300000),
+	('IPS03', '2021-11-11', 'USER04', NULL, 400000);
 
 -- Dumping structure for table book-store-management-db.import_sheet_book
 CREATE TABLE IF NOT EXISTS `import_sheet_book` (
@@ -192,12 +208,11 @@ CREATE TABLE IF NOT EXISTS `import_sheet_book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.import_sheet_book: ~4 rows (approximately)
-DELETE FROM `import_sheet_book`;
-INSERT INTO `import_sheet_book` (`id_importSheet`, `id_book`, `quantity`, `import_price`) VALUES
-	('IPS01', 'SACH01', 2, 45000),
-	('IPS01', 'SACH02', 3, 90000),
-	('IPS01', 'SACH03', 3, 50000),
-	('IPS02', 'SACH04', 1, 85000);
+INSERT INTO `import_sheet_book` (`id_importSheet`, `id_publisher`, `id_book`, `quantity`, `name`, `import_price`) VALUES
+	('IPS01', '', 'SACH01', 2, NULL, 45000),
+	('IPS01', '', 'SACH02', 3, NULL, 90000),
+	('IPS01', '', 'SACH03', 3, NULL, 50000),
+	('IPS02', '', 'SACH04', 1, NULL, 85000);
 
 -- Dumping structure for table book-store-management-db.orders
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -214,7 +229,6 @@ CREATE TABLE IF NOT EXISTS `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.orders: ~5 rows (approximately)
-DELETE FROM `orders`;
 INSERT INTO `orders` (`id`, `create_at`, `create_by`, `bought_by`, `sum_cost`) VALUES
 	('ORD01', '2022-11-20', 'USER01', 'CUS02', 90000),
 	('ORD02', '2022-10-10', 'USER02', 'CUS01', 100000),
@@ -235,7 +249,6 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.order_detail: ~4 rows (approximately)
-DELETE FROM `order_detail`;
 INSERT INTO `order_detail` (`id_order`, `id_book`, `quantity`, `price`) VALUES
 	('ORD01', 'SACH01', 2, 45000),
 	('ORD02', 'SACH01', 1, 45000),
@@ -256,10 +269,9 @@ CREATE TABLE IF NOT EXISTS `promotion` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.promotion: ~3 rows (approximately)
-DELETE FROM `promotion`;
-INSERT INTO `promotion` (`id`, `name`, `description`, `start_date`, `end_date`, `percent`, `apply_option`, `limit_orders`) VALUES
-	('KM01', 'Khuyến mãi 01', 'Mô tả của khuyến mãi 01', '2022-12-01', '2024-12-05', 0.2, 'All', 50);
+-- Dumping data for table book-store-management-db.promotion: ~1 rows (approximately)
+INSERT INTO `promotion` (`id`, `name`, `description`, `start_date`, `end_date`, `percent`, `apply_option`, `limit_orders`, `is_enabled`) VALUES
+	('KM01', 'Khuyến mãi 01', 'Mô tả của khuyến mãi 01', '2022-12-01', '2024-12-05', 0.2, 'All', 50, 1);
 
 -- Dumping structure for table book-store-management-db.promotion_book
 CREATE TABLE IF NOT EXISTS `promotion_book` (
@@ -271,8 +283,7 @@ CREATE TABLE IF NOT EXISTS `promotion_book` (
   CONSTRAINT `FK_promotion_book-promotion` FOREIGN KEY (`id_promotion`) REFERENCES `promotion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.promotion_book: ~5 rows (approximately)
-DELETE FROM `promotion_book`;
+-- Dumping data for table book-store-management-db.promotion_book: ~1 rows (approximately)
 INSERT INTO `promotion_book` (`id_promotion`, `id_book`) VALUES
 	('KM01', 'SACH01');
 
@@ -286,8 +297,7 @@ CREATE TABLE IF NOT EXISTS `promotion_order` (
   CONSTRAINT `FK_promotion_order-promotion` FOREIGN KEY (`id_promotion`) REFERENCES `promotion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.promotion_order: ~5 rows (approximately)
-DELETE FROM `promotion_order`;
+-- Dumping data for table book-store-management-db.promotion_order: ~0 rows (approximately)
 
 -- Dumping structure for table book-store-management-db.publisher
 CREATE TABLE IF NOT EXISTS `publisher` (
@@ -299,14 +309,15 @@ CREATE TABLE IF NOT EXISTS `publisher` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.publisher: ~5 rows (approximately)
-DELETE FROM `publisher`;
-INSERT INTO `publisher` (`id`, `name`, `address`, `phone`) VALUES
-	('NXB01', 'Nhà xuất bản Hồng Đức', '65 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội', '024 3926 0024'),
-	('NXB02', 'Nhà xuất bản Kim Đồng', '55 Quang Trung, Hà Nội, Việt Nam', '(024) 39434730'),
-	('NXB03', 'Nhà xuất bản Khoa học và Kỹ thuật', '70 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội', '024 3822 0686'),
-	('NXB04', 'Nhà xuất bản ĐHQG-HCM', 'Phòng 501, Nhà Điều hành ĐHQG-HCM, phường Linh Trung, quận Thủ Đức, TP Hồ Chí Mi', '028 6681 7058'),
-	('NXB05', 'Nhà xuất bản Thanh Niên', '143 Pasteur, Phường 6, Quận 3, Thành phố Hồ Chí Minh', '028 3910 6963');
+-- Dumping data for table book-store-management-db.publisher: ~7 rows (approximately)
+INSERT INTO `publisher` (`id`, `name`, `address`, `phone`, `is_disabled`) VALUES
+	('NXB01', 'Nhà xuất bản Hồng Đức', '65 Tràng Thi, Hàng Bông, Hoàn Kiếm, Hà Nội', '024 3926 0024', 0),
+	('NXB02', 'Nhà xuất bản Kim Đồng', '55 Quang Trung, Hà Nội, Việt Nam', '(024) 39434730', 0),
+	('NXB03', 'Nhà xuất bản Khoa học và Kỹ thuật', '70 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội', '024 3822 0686', 0),
+	('NXB04', 'Nhà xuất bản ĐHQG-HCM', 'Phòng 501, Nhà Điều hành ĐHQG-HCM, phường Linh Trung, quận Thủ Đức, TP Hồ Chí Mi', '028 6681 7058', 0),
+	('NXB05', 'Nhà xuất bản Thanh Niên - Update', '143 Pasteur, Phường 6, Quận 3, Thành phố Hồ Chí Minh', '028 3910 6963', 0),
+	('NXB06', 'NXB NHK', 'Quan 2, TPHCM', '30251020303', 0),
+	('NXB07', 'NXB Group04', '55 Quang Trung, Hà Nội, Việt Nam', '(024) 39434730', 0);
 
 -- Dumping structure for table book-store-management-db.user
 CREATE TABLE IF NOT EXISTS `user` (
@@ -320,8 +331,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   CONSTRAINT `FK_user_account` FOREIGN KEY (`id_account`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table book-store-management-db.user: ~5 rows (approximately)
-DELETE FROM `user`;
+-- Dumping data for table book-store-management-db.user: ~4 rows (approximately)
 INSERT INTO `user` (`id`, `name`, `id_account`, `address`, `role`) VALUES
 	('USER01', 'Nguyễn Hữu Khải', 'ACC01', 'Quận 5, TPHCM', 0),
 	('USER02', 'Nguyễn Hữu Lộc', 'ACC02', 'Quận 5, TPHCM', 0),
