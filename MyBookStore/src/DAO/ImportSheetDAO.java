@@ -214,7 +214,7 @@ public class ImportSheetDAO {
           e.printStackTrace();
         }
       }else{
-        query = "insert into book(id, name, id_publisher, price, stock, total_purchase, enabled, release_date) values(?,?,?,?,?,0,1,?)";
+        query = "insert into book(id, name, id_publisher, price, stock, total_purchase, is_enabled, release_date) values(?,?,?,?,?,0,1,?)";
         try {
           prst = conn.prepareStatement(query);
           prst.setString(1, bookInImportSheetPOJO.getId_book());
