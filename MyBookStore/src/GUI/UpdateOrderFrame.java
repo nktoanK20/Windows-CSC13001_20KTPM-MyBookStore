@@ -649,7 +649,20 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
                             PromotionPOJO promotion = PromotionBUS.getPromotionByIdBook(idBook);
                             double percentSale = 0;
                             if(promotion != null) {
-                                percentSale = promotion.getPercent();
+                                int limitOrders = promotion.getLimitOrders();
+                                OrdersBUS orderBUS = new OrdersBUS();
+                                int countOrdersInPromotion = orderBUS.countOrdersInPromotion(promotion.getId());
+
+                                if(limitOrders > countOrdersInPromotion) {
+                                    Calendar calendar = Calendar.getInstance();
+                                    Date currentDate = calendar.getTime();
+                                    int compareWithStartDate = currentDate.compareTo(promotion.getStartDate());
+                                    int compareWithEndDate = currentDate.compareTo(promotion.getEndDate());
+
+                                    if(compareWithStartDate >= 0 && compareWithEndDate <= 0) {
+                                        percentSale = promotion.getPercent();
+                                    }
+                                }
                             }
                             // Sale price is more than 10% of import price
                             double percentCompareToImportPrice = 0.1;

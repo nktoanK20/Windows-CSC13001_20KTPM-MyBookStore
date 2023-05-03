@@ -277,7 +277,7 @@ public class OrdersDAO {
             Connection connection = Database.createConnection();
             
             //Prepared statement
-            String query = "SELECT COUNT(?) AS total_orders FROM promotion_order";
+            String query = "SELECT COUNT(id_promotion) AS total_orders FROM promotion_order WHERE id_promotion=?";
             PreparedStatement pstmt = null;
             pstmt = connection.prepareStatement(query);
             //Set parameters
