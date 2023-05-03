@@ -16,6 +16,7 @@
 
 
 -- Dumping database structure for book-store-management-db
+DROP DATABASE `book-store-management-db`;
 CREATE DATABASE IF NOT EXISTS `book-store-management-db` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `book-store-management-db`;
 
