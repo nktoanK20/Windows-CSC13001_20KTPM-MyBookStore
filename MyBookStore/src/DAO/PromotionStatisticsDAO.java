@@ -35,11 +35,10 @@ public class PromotionStatisticsDAO {
                                              " (SELECT COUNT(orders.bought_by)" + 
                                              " FROM promotion_order, orders" + 
                                              " WHERE promotion_order.id_order = orders.id and promotion_order.id_promotion = promotion.id) as total_customers," + 
-                                             " (SELECT SUM(orders.sum_cost)" + 
-                                             " FROM promotion_order, orders" + 
-                                             " WHERE promotion_order.id_order = orders.id and promotion.id = promotion_order.id_promotion) as total_revenue " + 
-                            "FROM promotion, promotion_order " + 
-                            "WHERE promotion.id = promotion_order.id_promotion";
+                                             " (SELECT SUM(order_detail.price)" + 
+                                             " FROM promotion_book, order_detail, promotion_order" + 
+                                             " WHERE promotion.id = promotion_order.id_promotion AND promotion_order.id_order = order_detail.id_order AND order_detail.id_book = promotion_book.id_book AND promotion_book.id_promotion = promotion.id) as total_revenue " + 
+                            "FROM promotion";
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
                 String id = rs.getString("id");
@@ -68,10 +67,9 @@ public class PromotionStatisticsDAO {
             Connection connection = Database.createConnection();
             
             //Prepared statement
-            String query =  "SELECT DISTINCT promotion.id AS id_promotion, orders.id AS id_order, orders.sum_cost " + 
-                            "FROM promotion, orders, promotion_order " +
-                            "WHERE promotion_order.id_order = orders.id AND promotion.id = promotion_order.id_promotion " + 
-                            "ORDER BY orders.sum_cost desc " + 
+            String query =  "SELECT DISTINCT promotion_order.id_promotion AS id_promotion, promotion_order.id_order AS id_order, (SELECT SUM(order_detail.price) FROM promotion_book, promotion, order_detail WHERE promotion.id = promotion_order.id_promotion AND promotion_order.id_order = order_detail.id_order AND order_detail.id_book = promotion_book.id_book AND promotion_book.id_promotion = promotion.id) AS sum_cost " + 
+                            "FROM promotion_order " +
+                            "ORDER BY sum_cost desc " + 
                             "LIMIT ?";
                     
             PreparedStatement pstmt = null;
@@ -151,9 +149,9 @@ public class PromotionStatisticsDAO {
             //Prepared statement
             String query =  "SELECT DISTINCT promotion.id AS id_promotion, orders.bought_by AS id_customer, " +
                             "(SELECT customer.name FROM customer WHERE customer.id = orders.bought_by) AS name_customer, " +
-                            "(SELECT SUM(orders.sum_cost) " +
-                            "FROM orders " +
-                            "WHERE promotion.id = promotion_order.id_promotion AND promotion_order.id_order = orders.id) AS sum_cost " +
+                            "(SELECT SUM(order_detail.price) " +
+                            "FROM order_detail, promotion_book " +
+                            "WHERE order_detail.id_order = orders.id AND promotion.id = promotion_order.id_promotion AND promotion_order.id_order = order_detail.id_order AND order_detail.id_book = promotion_book.id_book AND promotion_book.id_promotion = promotion.id) AS sum_cost " +
                             "FROM promotion, promotion_order, orders " +
                             "WHERE promotion_order.id_order = orders.id AND promotion.id = promotion_order.id_promotion " +
                             "ORDER BY sum_cost desc " +

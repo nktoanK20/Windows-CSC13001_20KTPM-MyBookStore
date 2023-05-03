@@ -53,4 +53,19 @@ public class OrdersBUS {
         OrdersDAO da = new OrdersDAO();
         return da.deleteOrder(idOrder);
     }
+    
+    public boolean insertPromotionOrder(String idPromotion, String idOrder) {
+        OrdersDAO da = new OrdersDAO();
+        return da.insertPromotionOrder(idPromotion, idOrder);
+    }
+    
+    public int countOrdersInPromotion(String idPromotion) {
+        OrdersDAO da = new OrdersDAO();
+        return da.countOrdersInPromotion(idPromotion);
+    }
+
+    public boolean deleteOrderPromotion(String idPromotion, String idOrder) {
+        OrdersDAO da = new OrdersDAO();
+        return da.deleteOrderPromotion(idPromotion, idOrder);
+    }
 }

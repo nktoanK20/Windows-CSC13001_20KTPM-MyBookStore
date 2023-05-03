@@ -393,9 +393,14 @@ public class ViewBookCategoriesFrame extends javax.swing.JFrame {
             String id = category.getId();
             String name = category.getName();
             String description = category.getDescription();
+            boolean isEnabled = category.isIsEnabled();
+            String enabledStr = "Yes";
+            if(!isEnabled) {
+                enabledStr = "No";
+            }
 
             tableModel.setRowCount(0);
-            tableModel.addRow(new String[] { id, name, description });
+            tableModel.addRow(new String[] { id, name, description, enabledStr });
             tableModel.fireTableDataChanged();
         } else {
             JOptionPane.showMessageDialog(rootPane, "Not found any category!");

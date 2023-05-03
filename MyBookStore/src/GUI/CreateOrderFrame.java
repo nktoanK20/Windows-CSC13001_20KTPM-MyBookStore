@@ -153,13 +153,21 @@ public class CreateOrderFrame extends javax.swing.JFrame {
             
             // Lấy thông tin promotion
             PromotionPOJO promotion = PromotionBUS.getPromotionByIdBook(id);
+            
             double percentSale = 0;
             if(promotion != null) {
-                int compareWithStartDate = currentDate.compareTo(promotion.getStartDate());
-                int compareWithEndDate = currentDate.compareTo(promotion.getEndDate());
-                
-                if(compareWithStartDate >= 0 && compareWithEndDate <= 0) {
-                    percentSale = promotion.getPercent();
+                // Kiểm tra còn số lượng đơn hàng được khuyến mãi không
+                int limitOrders = promotion.getLimitOrders();
+                OrdersBUS orderBUS = new OrdersBUS();
+                int countOrdersInPromotion = orderBUS.countOrdersInPromotion(promotion.getId());
+
+                if(limitOrders > countOrdersInPromotion) {
+                    int compareWithStartDate = currentDate.compareTo(promotion.getStartDate());
+                    int compareWithEndDate = currentDate.compareTo(promotion.getEndDate());
+
+                    if(compareWithStartDate >= 0 && compareWithEndDate <= 0) {
+                        percentSale = promotion.getPercent();
+                    }
                 }
             }
             // Sale price is more than 10% of import price
@@ -239,6 +247,30 @@ public class CreateOrderFrame extends javax.swing.JFrame {
                     }
                     break;
                 }
+            }
+        }
+        
+        return true;
+    }
+
+    private boolean insertOrderPromotion(String idOrder) {
+        ArrayList<String> idPromotions = new ArrayList();
+        for(int i = 0; i < tableViewAddedBooks.getRowCount(); i++) {
+            String idBook = tableViewAddedBooks.getValueAt(i, 0).toString();
+        
+            PromotionPOJO promotion = PromotionBUS.getPromotionByIdBook(idBook);
+
+            if(promotion != null) {     
+                if(!idPromotions.contains(promotion.getId())) {                   
+                    idPromotions.add(promotion.getId());
+                }
+            }
+        }
+        
+        for(int i = 0; i < idPromotions.size(); i++) {
+            OrdersBUS orderBUS = new OrdersBUS();
+            if(!orderBUS.insertPromotionOrder(idPromotions.get(i), idOrder)) {
+                return false;
             }
         }
         
@@ -744,11 +776,13 @@ public class CreateOrderFrame extends javax.swing.JFrame {
         OrderDetailBUS bus4 = new OrderDetailBUS();
         List<OrderDetailPOJO> orderDetailList = createOrderDetail(idOrder);
         boolean isAddOrderDetailSuccess = bus4.addOrderDetail(orderDetailList);
+
+        boolean isSuccessInsertOrderPromotion = insertOrderPromotion(idOrder);
         
         // Cập nhật số lượng trong kho và tổng số sách đó bán được
         boolean isSoldBook = updateSoldBook();
         
-        if (isAddCustomerSuccess && isAddOrderSuccess && isAddOrderDetailSuccess && isSoldBook) {
+        if (isAddCustomerSuccess && isAddOrderSuccess && isAddOrderDetailSuccess && isSoldBook && isSuccessInsertOrderPromotion) {
             JOptionPane.showMessageDialog(rootPane, "You create an order successfully!");
         } else {
             JOptionPane.showMessageDialog(rootPane, "You create an order unsuccessfully. Please try it later!");

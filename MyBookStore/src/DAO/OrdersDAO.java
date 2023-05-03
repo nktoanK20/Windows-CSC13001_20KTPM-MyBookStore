@@ -246,4 +246,79 @@ public class OrdersDAO {
             }
         return true;
     }
+    
+    public boolean insertPromotionOrder(String idPromotion, String idOrder) {
+        try {
+                Connection connection = Database.createConnection();
+
+                //Prepared statement
+                String query = "INSERT INTO promotion_order VALUES(?, ?)";
+                PreparedStatement pstmt = null;
+                pstmt = connection.prepareStatement(query);
+                //Set parameters
+                pstmt.setString(1, idPromotion);
+                pstmt.setString(2, idOrder);
+                
+                pstmt.executeUpdate();
+
+                pstmt.close();
+                connection.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+        return true;
+    }
+    
+    public int countOrdersInPromotion(String idPromotion) {
+        int totalOrdersInPromotion = 0;
+        
+        try {
+            Connection connection = Database.createConnection();
+            
+            //Prepared statement
+            String query = "SELECT COUNT(?) AS total_orders FROM promotion_order";
+            PreparedStatement pstmt = null;
+            pstmt = connection.prepareStatement(query);
+            //Set parameters
+            pstmt.setString(1, idPromotion);
+
+            ResultSet resultSet = pstmt.executeQuery();
+            if (resultSet.next()) {
+                totalOrdersInPromotion = resultSet.getInt("total_orders");
+            }
+
+            pstmt.close();
+            resultSet.close();
+            connection.close();
+        }catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+        
+        return totalOrdersInPromotion;
+    }
+
+    public boolean deleteOrderPromotion(String idPromotion, String idOrder) {
+        try {
+            Connection connection = Database.createConnection();
+
+            //Prepared statement
+            String query = "DELETE FROM promotion_order WHERE id_promotion=? AND id_order=?";
+            PreparedStatement pstmt = null;
+            pstmt = connection.prepareStatement(query);
+            //Set parameters
+            pstmt.setString(1, idPromotion);
+            pstmt.setString(2, idOrder);
+            
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdersDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    return true;
+    }
 }

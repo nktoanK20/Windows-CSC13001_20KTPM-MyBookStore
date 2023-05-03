@@ -170,11 +170,13 @@ CREATE TABLE IF NOT EXISTS `customer` (
 
 -- Dumping data for table book-store-management-db.customer: ~5 rows (approximately)
 INSERT INTO `customer` (`id`, `name`, `official_customer`, `discount`) VALUES
-	('CUS01', 'Lê Văn B', 1, 0.05),
-	('CUS02', 'Anonymous', 0, 0),
-	('CUS03', 'Anonymous', 0, 0),
-	('CUS04', 'Huỳnh Văn A', 1, 0.05),
-	('CUS05', 'Anonymous', 0, 0);
+	('CUS01', 'Anonymous', 0, 0),
+	('CUS02', 'Lê Bá Hùng', 1, 0.05),
+	('CUS03', 'Nguyễn Hữu Sơn', 1, 0.05),
+	('CUS04', 'Anonymous', 0, 0),
+	('CUS05', 'Lê Ngọc Điệp', 1, 0.05),
+    ('CUS06', 'Anonymous', 0, 0),
+    ('CUS07', 'Trần Duy Tâm', 1, 0.05);
 
 -- Dumping structure for table book-store-management-db.import_sheet
 CREATE TABLE IF NOT EXISTS `import_sheet` (
@@ -231,11 +233,13 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 -- Dumping data for table book-store-management-db.orders: ~5 rows (approximately)
 INSERT INTO `orders` (`id`, `create_at`, `create_by`, `bought_by`, `sum_cost`) VALUES
-	('ORD01', '2022-11-20', 'USER01', 'CUS02', 90000),
-	('ORD02', '2022-10-10', 'USER02', 'CUS01', 100000),
-	('ORD03', '2022-12-04', 'USER01', 'CUS03', 85000),
-	('ORD04', '2021-09-07', 'USER04', 'CUS04', 75000),
-	('ORD05', '2020-12-16', 'USER02', 'CUS03', 120000);
+	('ORD01', '2022-11-20', 'USER02', 'CUS01', 237600),
+	('ORD02', '2023-04-23', 'USER02', 'CUS02', 408595),
+	('ORD03', '2023-03-20', 'USER04', 'CUS03', 365750),
+	('ORD04', '2023-02-02', 'USER04', 'CUS04', 243100),
+	('ORD05', '2023-05-03', 'USER01', 'CUS05', 231990),
+	('ORD07', '2023-01-10', 'USER01', 'CUS06', 94600),
+	('ORD09', '2023-02-20', 'USER02', 'CUS07', 104500);
 
 -- Dumping structure for table book-store-management-db.order_detail
 CREATE TABLE IF NOT EXISTS `order_detail` (
@@ -251,10 +255,22 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
 
 -- Dumping data for table book-store-management-db.order_detail: ~4 rows (approximately)
 INSERT INTO `order_detail` (`id_order`, `id_book`, `quantity`, `price`) VALUES
-	('ORD01', 'SACH01', 2, 45000),
-	('ORD02', 'SACH01', 1, 45000),
-	('ORD02', 'SACH03', 1, 50000),
-	('ORD03', 'SACH02', 2, 90000);
+	('ORD01', 'SACH01', '1', '39600'),
+	('ORD01', 'SACH02', '2', '198000'),
+	('ORD02', 'SACH01', '1', '39600'),
+	('ORD02', 'SACH04', '3', '280500'),
+	('ORD02', 'SACH05', '1', '110000'),
+	('ORD03', 'SACH03', '3', '165000'),
+	('ORD03', 'SACH05', '2', '220000'),
+	('ORD04', 'SACH01', '1', '39600'),
+	('ORD04', 'SACH04', '1', '93500'),
+	('ORD04', 'SACH05', '1', '110000'),
+	('ORD05', 'SACH01', '2', '79200'),
+	('ORD05', 'SACH03', '1', '55000'),
+	('ORD05', 'SACH05', '1', '110000'),
+	('ORD07', 'SACH01', '1', '39600'),
+	('ORD07', 'SACH03', '1', '55000'),
+	('ORD09', 'SACH05', '1', '110000');
 
 -- Dumping structure for table book-store-management-db.promotion
 CREATE TABLE IF NOT EXISTS `promotion` (
@@ -272,7 +288,8 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 
 -- Dumping data for table book-store-management-db.promotion: ~1 rows (approximately)
 INSERT INTO `promotion` (`id`, `name`, `description`, `start_date`, `end_date`, `percent`, `apply_option`, `limit_orders`, `is_enabled`) VALUES
-	('KM01', 'Khuyến mãi 01', 'Mô tả của khuyến mãi 01', '2022-12-01', '2024-12-05', 0.2, 'All', 50, 1);
+	('KM01', 'Khuyến mãi 01', 'Mô tả của khuyến mãi 01', '2022-12-01', '2024-12-05', 0.2, 'All', 50, 1),
+    ('KM02', 'Khuyến mãi hè ', 'Khuyến mãi hè với nhiều ưu đãi hấp dẫn dành cho học sinh, sinh viên', '2023-05-03', '2023-06-01', '0.1', 'Only Official Customer', '100', '1');
 
 -- Dumping structure for table book-store-management-db.promotion_book
 CREATE TABLE IF NOT EXISTS `promotion_book` (
@@ -286,7 +303,10 @@ CREATE TABLE IF NOT EXISTS `promotion_book` (
 
 -- Dumping data for table book-store-management-db.promotion_book: ~1 rows (approximately)
 INSERT INTO `promotion_book` (`id_promotion`, `id_book`) VALUES
-	('KM01', 'SACH01');
+	('KM01', 'SACH01'),
+	('KM02', 'SACH03'),
+	('KM02', 'SACH04');
+
 
 -- Dumping structure for table book-store-management-db.promotion_order
 CREATE TABLE IF NOT EXISTS `promotion_order` (
@@ -299,6 +319,18 @@ CREATE TABLE IF NOT EXISTS `promotion_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table book-store-management-db.promotion_order: ~0 rows (approximately)
+INSERT INTO `promotion_order` (`id_promotion`, `id_order`) VALUES
+	('KM01', 'ORD01'),
+	('KM01', 'ORD02'),
+	('KM02', 'ORD02'),
+	('KM02', 'ORD03'),
+	('KM01', 'ORD04'),
+	('KM02', 'ORD04'),
+	('KM01', 'ORD05'),
+	('KM02', 'ORD05'),
+	('KM01', 'ORD07'),
+	('KM02', 'ORD07');
+
 
 -- Dumping structure for table book-store-management-db.publisher
 CREATE TABLE IF NOT EXISTS `publisher` (

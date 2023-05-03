@@ -286,6 +286,30 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
         
         return true;
     }
+
+    private boolean insertOrderPromotion(String idOrder) {
+        ArrayList<String> idPromotions = new ArrayList();
+        for(int i = 0; i < tableViewAddedBooks.getRowCount(); i++) {
+            String idBook = tableViewAddedBooks.getValueAt(i, 0).toString();
+        
+            PromotionPOJO promotion = PromotionBUS.getPromotionByIdBook(idBook);
+
+            if(promotion != null) {     
+                if(!idPromotions.contains(promotion.getId())) {                   
+                    idPromotions.add(promotion.getId());
+                }
+            }
+        }
+        
+        for(int i = 0; i < idPromotions.size(); i++) {
+            OrdersBUS orderBUS = new OrdersBUS();
+            if(!orderBUS.insertPromotionOrder(idPromotions.get(i), idOrder)) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -778,6 +802,20 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
         if(!isSuccessDeleted) {
             isSuccessUpdated = false;
         }
+
+        // Xóa order promotion
+        OrdersBUS orderDeleteBUS = new OrdersBUS();
+        for(int i = 0; i < listBooksInOrder.size(); i++) {
+            PromotionPOJO promotion = PromotionBUS.getPromotionByIdBook(listBooksInOrder.get(i).getIdBook());
+            
+            if(promotion != null) {               
+                boolean isDeleteOrderInPromotion = orderDeleteBUS.deleteOrderPromotion(promotion.getId(), order.getId());
+
+                if(!isDeleteOrderInPromotion) {
+                    isSuccessUpdated = false;
+                }
+            }
+        }
         
         // Xóa đơn hàng cũ
         OrdersBUS orderBUS = new OrdersBUS();
@@ -800,6 +838,11 @@ public class UpdateOrderFrame extends javax.swing.JFrame {
         if(!isAddOrderDetailSuccess) {
             isSuccessUpdated = false;
         }  
+
+        boolean isSuccessInsertOrderPromotion = insertOrderPromotion(newIdOrder);
+        if(!isSuccessInsertOrderPromotion) {
+            isSuccessUpdated = false;
+        }
         
         // Cập nhật số lượng trong kho và tổng số sách đó bán được
         boolean isSoldBook = updateSoldBook();
